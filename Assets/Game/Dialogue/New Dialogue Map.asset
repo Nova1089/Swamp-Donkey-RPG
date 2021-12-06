@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee927c967a37f9f46abebdc6efe47827, type: 3}
   m_Name: New Dialogue Map
   m_EditorClassIdentifier: 
-  nodes: []
+  nodes:
+  - uniqueID: 
+    text: How
+    children: []
+  - uniqueID: 
+    text: Are
+    children: []
+  - uniqueID: 
+    text: You
+    children: []
