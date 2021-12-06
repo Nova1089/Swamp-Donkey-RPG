@@ -10,16 +10,20 @@ namespace RPG.Dialogue
     {
         [SerializeField] List<DialogueNode> nodes = new List<DialogueNode>();
         Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
+        float newNodeXPadding = 25f;
 
 #if UNITY_EDITOR
         void Awake()
         {
             if (nodes.Count == 0)
             {
-                nodes.Add(new DialogueNode());
+                DialogueNode rootNode = new DialogueNode();
+                rootNode.uniqueID = Guid.NewGuid().ToString();
+                nodes.Add(rootNode);
             }
         }
 #endif
+        // Also called by Unity Editor when script is loaded or a value changes in the inspector.
         void OnValidate()
         {
             BuildNodeLookup();
@@ -52,6 +56,32 @@ namespace RPG.Dialogue
                 {
                     yield return nodeLookup[childID]; 
                 }
+            }
+        }
+
+        public void CreateNode(DialogueNode parentNode)
+        {
+            DialogueNode newNode = new DialogueNode();
+            newNode.uniqueID = Guid.NewGuid().ToString();
+            newNode.position.x = parentNode.position.x + parentNode.width + newNodeXPadding;
+            newNode.position.y = parentNode.position.y;
+            parentNode.children.Add(newNode.uniqueID);
+            nodes.Add(newNode);
+            OnValidate();
+        }
+
+        public void DeleteNode(DialogueNode nodeToDelete)
+        {
+            nodes.Remove(nodeToDelete);
+            OnValidate();
+            CleanDanglingChildren(nodeToDelete);
+        }
+
+        private void CleanDanglingChildren(DialogueNode childNodeToDelete)
+        {
+            foreach (DialogueNode node in GetAllNodes())
+            {
+                node.children.Remove(childNodeToDelete.uniqueID);
             }
         }
     }

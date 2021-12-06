@@ -8,9 +8,9 @@ namespace RPG.Dialogue
     {
         public string uniqueID;
         public string text;
-        public string[] children;
-        public Vector2 position = new Vector2(0, 0);
+        public List<string> children = new List<string>();
+        public Vector2 position = new Vector2(10, 10);
         public float width = 200f;
-        public float height = 100f;        
+        public float height = 100f;
     }
 }

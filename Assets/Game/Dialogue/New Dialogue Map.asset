@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: New Dialogue Map
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: 
-    text: How
+  - uniqueID: 76005c80-98ad-41fb-8118-96ad69abb3f3
+    text: 
     children: []
-  - uniqueID: 
-    text: Are
-    children: []
-  - uniqueID: 
-    text: You
-    children: []
+    position: {x: 10, y: 10}
+    width: 200
+    height: 100

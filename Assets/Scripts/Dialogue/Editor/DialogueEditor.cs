@@ -8,11 +8,21 @@ using UnityEngine;
 namespace RPG.Dialogue.Editor
 {
     public class DialogueEditor : EditorWindow
-    {
+    {        
+        // state
         DialogueMap selectedDialogueMap = null;
-        GUIStyle nodeStyle;
-        DialogueNode draggingNode = null;
-        Vector2 draggingOffset;
+        [NonSerialized] GUIStyle nodeStyle;
+        [NonSerialized] DialogueNode draggingNode = null;
+        [NonSerialized] Vector2 draggingOffset;
+        [NonSerialized] DialogueNode creatingNode = null;
+        [NonSerialized] DialogueNode deletingNode = null;
+        [NonSerialized] DialogueNode linkingParentNode = null;
+        Vector2 scrollPosition;
+
+        // constants
+        const float canvasWidth = 4000f;
+        const float canvasHeight = 4000f;
+        const float backgroundSize = 50f;
 
         [MenuItem("Window/Dialogue Editor")]
         public static void ShowEditorWindow()
@@ -66,9 +76,36 @@ namespace RPG.Dialogue.Editor
             else
             {
                 ProcessMouseEvents();
+                scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
+
+                Rect canvas = GUILayoutUtility.GetRect(canvasWidth, canvasHeight);
+                Texture2D backgroundTexture = Resources.Load("background") as Texture2D;
+                Rect textureCoordinates = new Rect(0, 0, canvasWidth / backgroundSize, canvasHeight / backgroundSize);
+                GUI.DrawTextureWithTexCoords(canvas, backgroundTexture, textureCoordinates);
+
+
                 foreach (DialogueNode node in selectedDialogueMap.GetAllNodes())
                 {
-                    OnGUINode(node);
+                    DrawConnections(node);
+                }
+                foreach (DialogueNode node in selectedDialogueMap.GetAllNodes())
+                {
+                    DrawNode(node);
+                }
+
+                EditorGUILayout.EndScrollView();
+
+                if (creatingNode != null)
+                {
+                    Undo.RecordObject(selectedDialogueMap, "Added dialogue node.");
+                    selectedDialogueMap.CreateNode(creatingNode);
+                    creatingNode = null;
+                }
+                if (deletingNode != null)
+                {
+                    Undo.RecordObject(selectedDialogueMap, "Deleted dialogue node.");
+                    selectedDialogueMap.DeleteNode(deletingNode);
+                    deletingNode = null;
                 }
             }            
         }
@@ -77,64 +114,131 @@ namespace RPG.Dialogue.Editor
         {
             if (Event.current.type == EventType.MouseDown && draggingNode == null)
             {
-                draggingNode = GetNodeAtPoint(Event.current.mousePosition);
+                draggingNode = GetNodeAtPoint(Event.current.mousePosition + scrollPosition);
                 if (draggingNode != null)
                 {
                     draggingOffset = new Vector2();
                     draggingOffset.x = draggingNode.position.x - Event.current.mousePosition.x;
                     draggingOffset.y = draggingNode.position.y - Event.current.mousePosition.y;
                 }
+                else
+                {
+                    draggingOffset = Event.current.mousePosition + scrollPosition;
+                }
             }
             else if (Event.current.type == EventType.MouseDrag && draggingNode != null)
             {
-                Undo.RecordObject(selectedDialogueMap, "Drag Node");
+                Undo.RecordObject(selectedDialogueMap, "Dragged node.");
                 draggingNode.position = Event.current.mousePosition + draggingOffset;
                 GUI.changed = true;
             }
             else if (Event.current.type == EventType.MouseUp && draggingNode != null)
             {
                 draggingNode = null;
-            }        
+            }
+            else if (Event.current.type == EventType.MouseDrag)
+            {
+                scrollPosition = draggingOffset - Event.current.mousePosition;
+                GUI.changed = true;
+            }
         }
 
-        void OnGUINode(DialogueNode node)
+        void DrawNode(DialogueNode node)
         {
             GUILayout.BeginArea(new Rect(node.position.x, node.position.y, node.width, node.height), nodeStyle);
 
             EditorGUI.BeginChangeCheck();
-            EditorGUILayout.LabelField("Node: ");
             string newText = EditorGUILayout.TextField(node.text);
-            string newUniqueID = EditorGUILayout.TextField(node.uniqueID);
             if (EditorGUI.EndChangeCheck())
             {
-                Undo.RecordObject(selectedDialogueMap, "Update Node Values");
+                Undo.RecordObject(selectedDialogueMap, "Updated node values.");
                 node.text = newText;
-                node.uniqueID = newUniqueID;
             }
 
-            foreach (DialogueNode childNode in selectedDialogueMap.GetAllChildren(node))
+            GUILayout.BeginHorizontal();
+
+            if (GUILayout.Button("+"))
             {
-                EditorGUILayout.LabelField(childNode.text);
+                creatingNode = node;
             }
+
+            DrawLinkButtons(node);
+
+            if (GUILayout.Button("x"))
+            {
+                deletingNode = node;
+            }
+
+            GUILayout.EndHorizontal();
 
             GUILayout.EndArea();
+        }
+
+        private void DrawConnections(DialogueNode parentNode)
+        {
+            Rect parentNodeRect = new Rect(parentNode.position.x, parentNode.position.y, parentNode.width, parentNode.height);
+            Vector3 startPosition = new Vector3(parentNodeRect.xMax, parentNodeRect.center.y, 0);
+
+            foreach (DialogueNode childNode in selectedDialogueMap.GetAllChildren(parentNode))
+            {
+                Rect childNodeRect = new Rect(childNode.position.x, childNode.position.y, childNode.width, childNode.height);
+                Vector3 endPosition = new Vector3(childNodeRect.xMin, childNodeRect.center.y, 0);
+                Vector3 controlPointOffset = endPosition - startPosition;
+                controlPointOffset.y = 0;
+                controlPointOffset.x *= .8f;
+                Handles.DrawBezier(startPosition, endPosition, startPosition + controlPointOffset, endPosition - controlPointOffset, Color.white, null, 4f);
+            }
         }
 
         DialogueNode GetNodeAtPoint(Vector2 point)
         {
             DialogueNode foundNode = null;
-
+            
             foreach (DialogueNode node in selectedDialogueMap.GetAllNodes())
             {
-                if (point.x >= node.position.x && point.y >= node.position.y)
+                Rect nodeRect = new Rect(node.position.x, node.position.y, node.width, node.height);
+                if (nodeRect.Contains(point))
                 {
-                    if (point.x <= node.position.x + node.width && point.y <= node.position.y + node.height)
-                    {
-                        foundNode = node;
-                    }
+                    foundNode = node;
                 }
             }
             return foundNode;
+        }
+
+        private void DrawLinkButtons(DialogueNode node)
+        {
+            if (linkingParentNode == null)
+            {
+                if (GUILayout.Button("link"))
+                {
+                    linkingParentNode = node;
+                }
+            }
+            else if (linkingParentNode == node)
+            {
+                if (GUILayout.Button("cancel"))
+                {
+                    linkingParentNode = null;
+                }
+            }
+            else if (linkingParentNode.children.Contains(node.uniqueID))
+            {
+                if (GUILayout.Button("unlink"))
+                {
+                    Undo.RecordObject(selectedDialogueMap, "Removed dialogue link.");
+                    linkingParentNode.children.Remove(node.uniqueID);
+                    linkingParentNode = null;
+                }
+            }
+            else
+            {
+                if (GUILayout.Button("child"))
+                {
+                    Undo.RecordObject(selectedDialogueMap, "Added dialogue link.");
+                    linkingParentNode.children.Add(node.uniqueID);
+                    linkingParentNode = null;
+                }
+            }
         }
     }
 }
