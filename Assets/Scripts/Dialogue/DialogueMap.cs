@@ -1,25 +1,56 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace RPG.Dialogue
 {
     [CreateAssetMenu(fileName = "New Dialogue Map", menuName = "Dialogue Map", order = 0)]
-    public class DialogueMap : ScriptableObject
+    public class DialogueMap : ScriptableObject, ISerializationCallbackReceiver
     {
         [SerializeField] List<DialogueNode> nodes = new List<DialogueNode>();
         Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
-        float newNodeXPadding = 25f;
+        [SerializeField] Vector2 newNodeOffset = new Vector2(25f, 0);
 
 #if UNITY_EDITOR
-        void Awake()
+        public void CreateNode(DialogueNode parentNode, bool recordInUndoSystem)
         {
-            if (nodes.Count == 0)
+            DialogueNode newNode = CreateInstance<DialogueNode>();
+            newNode.name = Guid.NewGuid().ToString();
+
+            if (parentNode != null)
             {
-                DialogueNode rootNode = new DialogueNode();
-                rootNode.uniqueID = Guid.NewGuid().ToString();
-                nodes.Add(rootNode);
+                Vector2 offset = new Vector2(newNodeOffset.x + parentNode.GetWidth(), newNodeOffset.y);
+                newNode.SetPosition(parentNode.GetPosition() + offset);
+                parentNode.AddChild(newNode.name);
+                newNode.SetIsPlayerSpeaking(!parentNode.IsPlayerSpeaking());
+            } 
+
+            if (recordInUndoSystem)
+            {
+                Undo.RegisterCompleteObjectUndo(newNode, "Create dialogue node");
+                Undo.RecordObject(this, "Add dialogue node");
+            }
+
+            nodes.Add(newNode);
+            OnValidate();
+        }
+
+        public void DeleteNode(DialogueNode nodeToDelete)
+        {
+            Undo.RecordObject(this, "Delete dialogue node");
+            nodes.Remove(nodeToDelete);
+            OnValidate();
+            CleanDanglingChildren(nodeToDelete);
+            Undo.DestroyObjectImmediate(nodeToDelete);
+        }
+
+        private void CleanDanglingChildren(DialogueNode childNodeToDelete)
+        {
+            foreach (DialogueNode node in GetAllNodes())
+            {
+                node.RemoveChild(childNodeToDelete.name);
             }
         }
 #endif
@@ -34,7 +65,10 @@ namespace RPG.Dialogue
             nodeLookup.Clear();
             foreach (DialogueNode node in GetAllNodes())
             {
-                nodeLookup[node.uniqueID] = node;
+                if (node != null)
+                {
+                    nodeLookup[node.name] = node;
+                }
             }
         }
 
@@ -50,7 +84,7 @@ namespace RPG.Dialogue
 
         public IEnumerable<DialogueNode> GetAllChildren(DialogueNode parentNode)
         {
-            foreach (string childID in parentNode.children)
+            foreach (string childID in parentNode.GetChildren())
             {
                 if (nodeLookup.ContainsKey(childID))
                 {
@@ -59,30 +93,29 @@ namespace RPG.Dialogue
             }
         }
 
-        public void CreateNode(DialogueNode parentNode)
+        public void OnBeforeSerialize()
         {
-            DialogueNode newNode = new DialogueNode();
-            newNode.uniqueID = Guid.NewGuid().ToString();
-            newNode.position.x = parentNode.position.x + parentNode.width + newNodeXPadding;
-            newNode.position.y = parentNode.position.y;
-            parentNode.children.Add(newNode.uniqueID);
-            nodes.Add(newNode);
-            OnValidate();
-        }
-
-        public void DeleteNode(DialogueNode nodeToDelete)
-        {
-            nodes.Remove(nodeToDelete);
-            OnValidate();
-            CleanDanglingChildren(nodeToDelete);
-        }
-
-        private void CleanDanglingChildren(DialogueNode childNodeToDelete)
-        {
-            foreach (DialogueNode node in GetAllNodes())
+#if UNITY_EDITOR
+            if (nodes.Count == 0)
             {
-                node.children.Remove(childNodeToDelete.uniqueID);
+                CreateNode(null, false);
             }
+
+            if (AssetDatabase.GetAssetPath(this) != "")
+            {
+                foreach (DialogueNode node in GetAllNodes())
+                {
+                    if (AssetDatabase.GetAssetPath(node) == "")
+                    {
+                        AssetDatabase.AddObjectToAsset(node, this);
+                    }
+                }
+            }
+#endif
         }
-    }
+
+        public void OnAfterDeserialize()
+        {
+        }
+    } 
 }
