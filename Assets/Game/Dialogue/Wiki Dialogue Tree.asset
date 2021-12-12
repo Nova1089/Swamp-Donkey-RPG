@@ -1,0 +1,279 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7943962438035545149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 347f8e99-c6fb-4330-bfef-ac0e5d6f14f5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Although, I don't really get out much. That must be it.
+  children:
+  - 1feb8708-3cdc-4230-8e41-71f34a7c9264
+  position: {x: 597, y: 232}
+  width: 200
+  height: 100
+--- !u!114 &-7859824296977439455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 1feb8708-3cdc-4230-8e41-71f34a7c9264
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Don't you worry about it. Say, do you have something to eat? I'm starving.
+  children: []
+  position: {x: 1595, y: 260}
+  width: 200
+  height: 100
+--- !u!114 &-6197151391395702027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 2b0859a7-dcaa-424f-9912-e5d99f8fdeea
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I came here from Newton.
+  children:
+  - dde0677d-c266-436c-a5c4-e9341f028328
+  position: {x: 362, y: 427}
+  width: 200
+  height: 100
+--- !u!114 &-3167794652645976355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 666ad8d5-59c4-4d3a-a98f-2b9fb08df7b8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You liar! There ain't no Mr. Bowler, I made him up!
+  children: []
+  position: {x: 1592, y: -8}
+  width: 200
+  height: 100
+--- !u!114 &-2803237767241881767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: ca83fab3-219c-4329-ba55-2ad9a314369c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I haven't heard about any trouble.
+  children:
+  - 1feb8708-3cdc-4230-8e41-71f34a7c9264
+  position: {x: 846, y: 308}
+  width: 200
+  height: 100
+--- !u!114 &-1288338211496027107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 41da888d-6e09-448c-89f8-8bc180dae65a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Mr. Bowler is a good friend of mine!
+  children:
+  - 666ad8d5-59c4-4d3a-a98f-2b9fb08df7b8
+  position: {x: 1316, y: -10}
+  width: 200
+  height: 100
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee927c967a37f9f46abebdc6efe47827, type: 3}
+  m_Name: Wiki Dialogue Tree
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2339146905174993577}
+  - {fileID: -6197151391395702027}
+  - {fileID: 6052900272499433117}
+  - {fileID: 116034505760193569}
+  - {fileID: -2803237767241881767}
+  - {fileID: 4687320411023884838}
+  - {fileID: -7859824296977439455}
+  - {fileID: 2450868070382506887}
+  - {fileID: -1288338211496027107}
+  - {fileID: -3167794652645976355}
+  - {fileID: 996060183671738734}
+  - {fileID: 1864009846596011265}
+  - {fileID: -7943962438035545149}
+  newNodeOffset: {x: 25, y: 0}
+--- !u!114 &116034505760193569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: dde0677d-c266-436c-a5c4-e9341f028328
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Newton, eh? I heard there's trouble brewing down there.
+  children:
+  - ca83fab3-219c-4329-ba55-2ad9a314369c
+  - 4e6730a5-ab29-47bb-ae29-16add4422774
+  position: {x: 592, y: 431}
+  width: 200
+  height: 100
+--- !u!114 &996060183671738734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 776a046e-fe02-4716-aac4-65d315c65b37
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Who?
+  children:
+  - 1feb8708-3cdc-4230-8e41-71f34a7c9264
+  position: {x: 1326, y: 156}
+  width: 200
+  height: 100
+--- !u!114 &1864009846596011265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 6334ff97-364e-45e0-92b0-b2398ca747af
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I know everyone here, and I don't recognize you!
+  children:
+  - f7ba7687-920e-423c-9ad8-b16f4cf6878b
+  position: {x: 600, y: 92}
+  width: 200
+  height: 100
+--- !u!114 &2339146905174993577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 7ab7d2f0-6a7a-4f9b-a504-a31d984e3452
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You don't look like you're from around here.
+  children:
+  - 2b0859a7-dcaa-424f-9912-e5d99f8fdeea
+  - 7303e4d9-7746-48be-ba45-ddb23adf329d
+  position: {x: 136, y: 283}
+  width: 200
+  height: 100
+--- !u!114 &2450868070382506887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: f7ba7687-920e-423c-9ad8-b16f4cf6878b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Oh really? Then you must know Mr. Bowler.
+  children:
+  - 41da888d-6e09-448c-89f8-8bc180dae65a
+  - 776a046e-fe02-4716-aac4-65d315c65b37
+  position: {x: 1080, y: 95}
+  width: 200
+  height: 100
+--- !u!114 &4687320411023884838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 4e6730a5-ab29-47bb-ae29-16add4422774
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Did I say Newton? I'm actually from Springville.
+  children:
+  - f7ba7687-920e-423c-9ad8-b16f4cf6878b
+  position: {x: 836, y: 532}
+  width: 200
+  height: 100
+--- !u!114 &6052900272499433117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 7303e4d9-7746-48be-ba45-ddb23adf329d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I've lived here all my life!
+  children:
+  - f7ba7687-920e-423c-9ad8-b16f4cf6878b
+  - 6334ff97-364e-45e0-92b0-b2398ca747af
+  - 347f8e99-c6fb-4330-bfef-ac0e5d6f14f5
+  position: {x: 353, y: 179}
+  width: 200
+  height: 100

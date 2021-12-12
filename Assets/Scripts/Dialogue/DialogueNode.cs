@@ -15,6 +15,9 @@ namespace RPG.Dialogue
         [SerializeField] private Vector2 position = new Vector2(10, 10);
         [SerializeField] private float width = 200f;
         [SerializeField] private float height = 100f;
+        [SerializeField] private string onEnterAction;
+        [SerializeField] private string onExitAction;
+
 
         // getters and setters
         public bool IsPlayerSpeaking()
@@ -45,6 +48,16 @@ namespace RPG.Dialogue
         public float GetHeight()
         {
             return height;
+        }
+
+        public string GetOnEnterAction()
+        {
+            return onEnterAction;
+        }
+
+        public string GetOnExitAction()
+        {
+            return onExitAction;
         }
 
 #if UNITY_EDITOR

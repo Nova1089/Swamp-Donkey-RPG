@@ -36,7 +36,7 @@ MonoBehaviour:
   text: Screw you!
   children:
   - d2f8a9fd-6c8e-4470-a81d-c661326e9fc3
-  position: {x: 305, y: 332}
+  position: {x: 304, y: 332}
   width: 200
   height: 100
 --- !u!114 &-1670272746749907930

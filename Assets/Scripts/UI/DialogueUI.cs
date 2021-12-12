@@ -14,8 +14,8 @@ namespace RPG.UI
         [SerializeField] Button nextButton;
         [SerializeField] Transform choiceRoot;
         [SerializeField] private GameObject choiceButtonPrefab;
-
-
+        [SerializeField] GameObject npcResponse;
+        [SerializeField] Button quitButton;
 
         void Awake()
         {
@@ -24,7 +24,9 @@ namespace RPG.UI
 
         void OnEnable()
         {
+            playerConversant.onConversationUpdated += UpdateUI;
             nextButton.onClick.AddListener(Next);
+            quitButton.onClick.AddListener(Quit);            
         }
 
         void Start()
@@ -32,26 +34,60 @@ namespace RPG.UI
             UpdateUI();
         }
 
+        void Quit()
+        {
+            playerConversant.Quit();
+        }
+
         void Next()
         {
             playerConversant.Next();
-            UpdateUI();
         }
 
         private void UpdateUI()
         {
-            npcText.text = playerConversant.GetText();
-            nextButton.gameObject.SetActive(playerConversant.HasNext());
+            gameObject.SetActive(playerConversant.IsActive());
+
+            if (!playerConversant.IsActive()) return;
+
+            if (playerConversant.IsChoosing())
+            {
+                DisplayChoiceList();
+            }
+            else
+            {
+                DisplayNPCText();
+            }
+        }
+
+        private void DisplayChoiceList()
+        {
             foreach (Transform item in choiceRoot)
             {
                 Destroy(item.gameObject);
             }
-            foreach (string choiceText in playerConversant.GetChoices())
+            foreach (DialogueNode choice in playerConversant.GetChoices())
             {
                 GameObject choiceButtonInstance = Instantiate(choiceButtonPrefab, choiceRoot);
                 var TMPComponent = choiceButtonInstance.GetComponentInChildren<TextMeshProUGUI>();
-                TMPComponent.text = choiceText;
+                TMPComponent.text = choice.GetText();
+                Button button = choiceButtonInstance.GetComponentInChildren<Button>();
+                button.onClick.AddListener(() =>
+                {
+                    playerConversant.SelectChoice(choice);
+                });
             }
+
+            choiceRoot.gameObject.SetActive(true);
+            npcResponse.SetActive(false);
+        }
+
+        private void DisplayNPCText()
+        {
+            npcText.text = playerConversant.GetText();
+            nextButton.gameObject.SetActive(playerConversant.HasNext());
+            npcResponse.SetActive(true);
+            choiceRoot.gameObject.SetActive(false);
         }
     }
 }

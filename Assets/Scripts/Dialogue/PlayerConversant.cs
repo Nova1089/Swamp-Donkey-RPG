@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +8,39 @@ namespace RPG.Dialogue
 {
     public class PlayerConversant : MonoBehaviour
     {
-        // configs
-        [SerializeField] DialogueMap currentDialogueMap;
-
         // state
+        DialogueMap currentDialogueMap;
         DialogueNode currentNode = null;
+        bool isChoosing = false;
 
-        void Awake()
+        // events
+        public event Action onConversationUpdated;
+
+        // methods
+        public void StartDialogue(DialogueMap newDialogueMap)
         {
-            if (currentDialogueMap != null)
-            {
-                currentNode = currentDialogueMap.GetRootNode();
-            }            
+            if (newDialogueMap == null) return;
+            currentDialogueMap = newDialogueMap;
+            currentNode = currentDialogueMap.GetRootNode();
+            onConversationUpdated();
+        }
+
+        public void Quit()
+        {
+            currentDialogueMap = null;
+            currentNode = null;
+            isChoosing = false;
+            onConversationUpdated();
+        }
+
+        public bool IsActive()
+        {
+            return currentDialogueMap != null;
+        }
+
+        public bool IsChoosing()
+        {
+            return isChoosing;
         }
 
         public string GetText()
@@ -27,17 +49,31 @@ namespace RPG.Dialogue
             return currentNode.GetText();
         }
 
-        public IEnumerable<string> GetChoices()
+        public IEnumerable<DialogueNode> GetChoices()
         {
-            yield return "Example text 1";
-            yield return "Example text 2";
-            yield return "Example text 3";
+            return currentDialogueMap.GetPlayerChildren(currentNode);
+        }
+
+        public void SelectChoice(DialogueNode chosenNode)
+        {
+            currentNode = chosenNode;
+            isChoosing = false;
+            Next();
         }
 
         public void Next()
         {
-            DialogueNode[] childrenNodes = currentDialogueMap.GetAllChildren(currentNode).ToArray();
-            currentNode = childrenNodes[Random.Range(0, childrenNodes.Length)];      
+            int numPlayerResponses = currentDialogueMap.GetPlayerChildren(currentNode).Count();
+            if (numPlayerResponses > 0)
+            {
+                isChoosing = true;
+                onConversationUpdated();
+                return;
+            }
+            DialogueNode[] npcChildrenNodes = currentDialogueMap.GetNPCChildren(currentNode).ToArray();
+            int randomIndex = UnityEngine.Random.Range(0, npcChildrenNodes.Length);
+            currentNode = npcChildrenNodes[randomIndex];
+            onConversationUpdated();
         }
 
         public bool HasNext()
