@@ -18,7 +18,6 @@ namespace RPG.Dialogue
         [SerializeField] private string onEnterAction;
         [SerializeField] private string onExitAction;
 
-
         // getters and setters
         public bool IsPlayerSpeaking()
         {

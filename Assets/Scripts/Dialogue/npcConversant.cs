@@ -5,10 +5,11 @@ using UnityEngine;
 
 namespace RPG.Dialogue
 {
-    public class npcConversant : MonoBehaviour, IRaycastable
+    public class NPCConversant : MonoBehaviour, IRaycastable
     {
         // configs
         [SerializeField] DialogueMap dialogueMap = null;
+        [SerializeField] private string speakerName;
 
         // state
         PlayerConversant playerConversant;
@@ -25,9 +26,14 @@ namespace RPG.Dialogue
             if (Input.GetMouseButtonDown(0))
             {
                 playerConversant = callingController.GetComponent<PlayerConversant>();
-                playerConversant.StartDialogue(dialogueMap);
+                playerConversant.StartDialogue(this, dialogueMap);
             }
             return true;            
+        }
+
+        public string GetName()
+        {
+            return speakerName;
         }
     }
 }

@@ -140,6 +140,8 @@ MonoBehaviour:
   choiceButtonPrefab: {fileID: 2899987038430401664, guid: ea5a8346111f6d64c8371ba449dc79a5,
     type: 3}
   npcResponse: {fileID: 5589316985732771337}
+  quitButton: {fileID: 4981125520286081892}
+  currentSpeakerText: {fileID: 4045333718450373731}
 --- !u!1 &1482159523679010151
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +367,7 @@ GameObject:
   - component: {fileID: 4981125520286081892}
   - component: {fileID: 2526320371647376225}
   m_Layer: 5
-  m_Name: Close Button
+  m_Name: Quit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

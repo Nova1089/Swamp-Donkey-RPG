@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b8913ffbd16ef48ae526b2ea0c748a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDialogue: {fileID: 11400000, guid: cb4a19ae638f6094b82db0dba1494d54, type: 2}
+  playerName: JimmyBob
 --- !u!1001 &5590448998644717528
 PrefabInstance:
   m_ObjectHideFlags: 0

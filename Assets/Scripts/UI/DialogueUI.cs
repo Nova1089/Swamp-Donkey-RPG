@@ -16,6 +16,8 @@ namespace RPG.UI
         [SerializeField] private GameObject choiceButtonPrefab;
         [SerializeField] GameObject npcResponse;
         [SerializeField] Button quitButton;
+        [SerializeField] private TextMeshProUGUI currentSpeakerText;
+
 
         void Awake()
         {
@@ -25,7 +27,8 @@ namespace RPG.UI
         void OnEnable()
         {
             playerConversant.onConversationUpdated += UpdateUI;
-            nextButton.onClick.AddListener(Next);
+            nextButton.onClick.RemoveAllListeners();
+            nextButton.onClick.AddListener(Next);            
             quitButton.onClick.AddListener(Quit);            
         }
 
@@ -50,6 +53,11 @@ namespace RPG.UI
 
             if (!playerConversant.IsActive()) return;
 
+            if (currentSpeakerText != null)
+            {
+                currentSpeakerText.text = playerConversant.GetCurrentSpeakerName();
+            }
+            
             if (playerConversant.IsChoosing())
             {
                 DisplayChoiceList();
