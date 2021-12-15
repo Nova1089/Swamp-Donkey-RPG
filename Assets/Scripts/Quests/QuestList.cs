@@ -13,14 +13,26 @@ namespace RPG.Quests
         public event Action OnUpdate;
 
         public void AddQuest(Quest quest)
-        {            
-            QuestStatus newQuestStatus = new QuestStatus(quest);
-            if (statuses.Contains(newQuestStatus)) return;           
+        {
+            if (HasQuest(quest)) return;
+            QuestStatus newQuestStatus = new QuestStatus(quest);       
             statuses.Add(newQuestStatus);
             if (OnUpdate != null)
             {
                 OnUpdate();
             }            
+        }
+
+        public bool HasQuest(Quest quest)
+        {
+            foreach (QuestStatus questStatus in statuses)
+            {
+                if (questStatus.GetQuest() == quest)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public IEnumerable<QuestStatus> GetStatusus()
