@@ -32,7 +32,10 @@ namespace RPG.UI.Quests
         {
             if (questList == null) return;
             if (questPrefab == null) return;
-            transform.DetachChildren();
+            foreach (Transform item in this.transform)
+            {
+                Destroy(item.gameObject);
+            }
             foreach (QuestStatus questStatus in questList.GetStatusus())
             {
                 QuestItemUI questUIInstance = Instantiate(questPrefab, this.transform);

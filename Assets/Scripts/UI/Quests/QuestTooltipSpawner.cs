@@ -10,10 +10,15 @@ namespace RPG.UI.Quests
     {
         // cached references
         QuestItemUI questItemUI;
+        QuestStatus questStatus;
 
         void Awake()
         {
             questItemUI = GetComponent<QuestItemUI>();
+            if (questItemUI == null)
+            {
+                Debug.Log("questItemUI is null in QuestTooltipSpawner");
+            }
         }
 
         public override bool CanCreateTooltip()
@@ -23,7 +28,7 @@ namespace RPG.UI.Quests
 
         public override void UpdateTooltip(GameObject tooltip)
         {
-            QuestStatus questStatus = questItemUI.GetQuestStatus();
+            questStatus = questItemUI.GetQuestStatus();
             tooltip.GetComponent<QuestTooltipUI>().Setup(questStatus);
         }
     }

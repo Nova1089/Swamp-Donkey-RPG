@@ -672,6 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questTitle: {fileID: 1743325651271864707}
+  rewardsText: {fileID: 4520646528764622365}
   objectiveList: {fileID: 5472508915874739441}
   completedObjectivePrefab: {fileID: 398732892259562492, guid: bdf19e2bb436ae24eb0fe1570a1daab7,
     type: 3}

@@ -1,3 +1,6 @@
+using GameDevTV.Inventories;
+using GameDevTV.Saving;
+using RPG.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,9 +8,9 @@ using UnityEngine;
 
 namespace RPG.Quests
 {
-    public class QuestList : MonoBehaviour
+    public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
-        List<QuestStatus> statuses = new List<QuestStatus>();
+        List<QuestStatus> questStatuses = new List<QuestStatus>();
 
         // events
         public event Action OnUpdate;
@@ -16,7 +19,7 @@ namespace RPG.Quests
         {
             if (HasQuest(quest)) return;
             QuestStatus newQuestStatus = new QuestStatus(quest);       
-            statuses.Add(newQuestStatus);
+            questStatuses.Add(newQuestStatus);
             if (OnUpdate != null)
             {
                 OnUpdate();
@@ -25,19 +28,92 @@ namespace RPG.Quests
 
         public bool HasQuest(Quest quest)
         {
-            foreach (QuestStatus questStatus in statuses)
+            return GetQuestStatus(quest) != null;
+        }
+
+        private QuestStatus GetQuestStatus(Quest quest)
+        {
+            foreach (QuestStatus questStatus in questStatuses)
             {
                 if (questStatus.GetQuest() == quest)
                 {
-                    return true;
+                    return questStatus;
                 }
             }
-            return false;
+            return null;
         }
 
         public IEnumerable<QuestStatus> GetStatusus()
         {
-            return statuses;
+            return questStatuses;
+        }
+
+        public void CompleteObjective(Quest quest, string objective)
+        {
+            QuestStatus questStatus = GetQuestStatus(quest);
+            if (questStatus == null) return;
+            questStatus.CompleteObjective(objective);
+            if (questStatus.IsComplete())
+            {
+                GiveReward(quest);
+            }
+            if (OnUpdate != null)
+            {
+                OnUpdate();
+            }
+        }
+
+        private void GiveReward(Quest quest)
+        {
+            foreach (Quest.Reward reward in quest.GetRewards())
+            {
+                bool isSuccess = GetComponent<Inventory>().AddToFirstEmptySlot(reward.item, reward.number);
+                if (!isSuccess)
+                {
+                    GetComponent<ItemDropper>().DropItem(reward.item, reward.number);
+                }
+            }
+        }
+
+        public object CaptureState()
+        {
+            List<object> state = new List<object>();
+            foreach (QuestStatus questStatus in questStatuses)
+            {
+                state.Add(questStatus.CaptureState());
+            }
+            return state;            
+        }
+
+        public void RestoreState(object state)
+        {
+            List<object> stateList = state as List<object>;
+            if (stateList == null) return;
+
+            questStatuses.Clear();
+            foreach (object objectState in stateList)
+            {                
+                questStatuses.Add(new QuestStatus(objectState));
+            }
+        }
+
+        public bool? Evaluate(string predicate, string[] parameters)
+        {
+
+            foreach (string parameter in parameters)
+            {
+                switch (predicate)
+                {
+                    case "HasQuest":
+                        return HasQuest(Quest.GetByName(parameter));
+                    case "CompleteQuest":
+                        Quest quest = Quest.GetByName(parameter);
+                        QuestStatus questStatus = GetQuestStatus(quest);
+                        if (questStatus == null) return false;
+                        return questStatus.IsComplete();
+                }
+            }
+            return null;
         }
     }
 }

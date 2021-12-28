@@ -1,3 +1,4 @@
+using RPG.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace RPG.Dialogue
         [SerializeField] private float height = 100f;
         [SerializeField] private string onEnterAction;
         [SerializeField] private string onExitAction;
+        [SerializeField] private Condition condition;
 
         // getters and setters
         public bool IsPlayerSpeaking()
@@ -57,6 +59,11 @@ namespace RPG.Dialogue
         public string GetOnExitAction()
         {
             return onExitAction;
+        }
+
+        public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
+        {
+            return condition.Check(evaluators);
         }
 
 #if UNITY_EDITOR

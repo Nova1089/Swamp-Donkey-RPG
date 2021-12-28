@@ -61,7 +61,7 @@ MonoBehaviour:
   width: 200
   height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: Bunion
 --- !u!114 &-3167794652645976355
 MonoBehaviour:
   m_ObjectHideFlags: 0

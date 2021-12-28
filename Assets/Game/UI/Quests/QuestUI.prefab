@@ -121,7 +121,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7556834514512989947}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5157863
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -937,7 +937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7edae44a3b2ad446af33554216ba1cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempQuests: []
   questPrefab: {fileID: 3746555502518275969, guid: f90a4b06368aa2642aafbba18e782247,
     type: 3}
 --- !u!1 &9160282916269814814

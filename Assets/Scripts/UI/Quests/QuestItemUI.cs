@@ -18,6 +18,10 @@ namespace RPG.UI.Quests
         public void Setup(QuestStatus questStatus)
         {
             this.questStatus = questStatus;
+            if (this.questStatus == null)
+            {
+                Debug.Log("questStatus is null in QuestItemUI");
+            }
             title.text = questStatus.GetQuest().GetTitle();
             progress.text = questStatus.GetProgress();
         }

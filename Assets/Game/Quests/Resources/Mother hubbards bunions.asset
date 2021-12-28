@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: Mother hubbards bunions
   m_EditorClassIdentifier: 
   objectives:
-  - Find mother hubbard
-  - Give her some better shoes
+  - id: 2
+    description: Bring some foot cream to Mother Hubbard's son.
+  rewards:
+  - number: 1
+    item: {fileID: 11400000, guid: d64a307491012e543995a2eef4f8cf74, type: 2}
+  - number: 2
+    item: {fileID: 11400000, guid: 629178aff4dad64439109e22245ae586, type: 2}
