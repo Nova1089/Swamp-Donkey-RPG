@@ -16,6 +16,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3125957438692005694, guid: 750e3c6876a501e42b5827ec7a3d24d1,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c7272ad808b5a8449f77a375a2c4119,
+        type: 2}
+    - target: {fileID: 3125957438692005694, guid: 750e3c6876a501e42b5827ec7a3d24d1,
+        type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 7035397697022520091}
+    - target: {fileID: 3125957438692005694, guid: 750e3c6876a501e42b5827ec7a3d24d1,
+        type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 7035397697022577523}
     - target: {fileID: 5401972681186859721, guid: 750e3c6876a501e42b5827ec7a3d24d1,
         type: 3}
       propertyPath: m_Name
@@ -116,6 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68947294655095a41bd2447d8459681e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopName: 
+  sellingPercentage: 0
+  stockConfigs: []
 --- !u!1001 &7035397697022903031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,3 +196,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ccae2dc6cf6f0c4479b782fedd0c8172, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+--- !u!4 &7035397697022520091 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 403948, guid: 679ff741e12a7e740819ede24a7000b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7035397697022903031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7035397697022577523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 461188, guid: 679ff741e12a7e740819ede24a7000b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7035397697022903031}
+  m_PrefabAsset: {fileID: 0}

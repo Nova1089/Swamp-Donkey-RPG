@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RPG.UI.Shops
 {
@@ -14,26 +15,39 @@ namespace RPG.UI.Shops
         [SerializeField] private Transform listRoot;
         [SerializeField] private RowUI rowPrefab;
         [SerializeField] private TextMeshProUGUI totalField;
+        [SerializeField] private Button buySellButton;
+        [SerializeField] private Button switchBuySellButton;
 
         // cached references
+        TextMeshProUGUI switchButtonText;
+        TextMeshProUGUI buySellButtonText;
+
+        // state
         GameObject player;
         Shopper shopper;
         Shop currentShop;
+        Color originalTotalTextColor;
 
         void Awake()
         {
             player = GameObject.FindGameObjectWithTag("Player");
             shopper = player.GetComponent<Shopper>();
+            originalTotalTextColor = totalField.color;
+            switchButtonText = switchBuySellButton.GetComponentInChildren<TextMeshProUGUI>();
+            buySellButtonText = buySellButton.GetComponentInChildren<TextMeshProUGUI>();
         }
 
         void OnEnable()
         {
             shopper.OnActiveShopChanged += CurrentShopChanged;
+            buySellButton.onClick.AddListener(ConfirmTransaction);
+            switchBuySellButton.onClick.AddListener(SwitchBuySellMode);
         }
 
         void OnDisable()
         {
-            // shopper.OnActiveShopChanged -= ShopChanged;
+            buySellButton.onClick.RemoveAllListeners();
+            switchBuySellButton.onClick.RemoveAllListeners();
         }
 
         // Start is called before the first frame update
@@ -54,9 +68,14 @@ namespace RPG.UI.Shops
 
             if (currentShop != null)
             {
-                shopName.text = currentShop.GetShopName();
-                currentShop.onChange += RefreshUI;
+                foreach (FilterButtonUI button in GetComponentsInChildren<FilterButtonUI>())
+                {
+                    button.SetShop(currentShop);
+                }
+
+                shopName.text = currentShop.GetShopName();                
                 gameObject.SetActive(true);
+                currentShop.onChange += RefreshUI;
             }
             else
             {
@@ -81,11 +100,35 @@ namespace RPG.UI.Shops
             }
 
             totalField.text = $"Total: ${currentShop.TransactionTotal():N2}";
+            totalField.color = currentShop.HasSufficientFunds() ? originalTotalTextColor : Color.red;
+
+            buySellButton.interactable = currentShop.CanTransact();
+
+            if (currentShop.IsBuyingMode())
+            {
+                switchButtonText.text = "Switch To Selling";
+                buySellButtonText.text = "Buy";
+            }
+            else
+            {
+                switchButtonText.text = "Switch To Buying";
+                buySellButtonText.text = "Sell";
+            }
+
+            foreach (FilterButtonUI button in GetComponentsInChildren<FilterButtonUI>())
+            {
+                button.RefreshUI();
+            }
         }
 
         public void ConfirmTransaction()
         {
             currentShop.ConfirmTransaction();
+        }
+
+        public void SwitchBuySellMode()
+        {
+            currentShop.SwitchBuySellMode(!currentShop.IsBuyingMode());
         }
 
         public void Quit()
