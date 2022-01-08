@@ -7,8 +7,8 @@ using UnityEngine;
 namespace RPG.Abilities.Targeting
 {
 
-    [CreateAssetMenu(fileName = "Delayed Click Targeting", menuName = "Abilities/Targeting/Delayed Click", order = 1)]
-    public class DelayedClickTargeting : TargetingStrategy
+    [CreateAssetMenu(fileName = "Click Location Targeting", menuName = "Abilities/Targeting/Click Location", order = 1)]
+    public class ClickLocationTargeting : TargetingStrategy 
     {
         // configs
         [SerializeField] Texture2D cursorTexture;
@@ -41,9 +41,8 @@ namespace RPG.Abilities.Targeting
 
             indicatorInstance.transform.localScale = new Vector3(areaEffectRadius * 2, 1, areaEffectRadius * 2);
 
-            while (true)
-            {
-                // Run every frame;
+            while (!data.IsCancelled()) // Run every frame;
+            {                
                 Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
                 RaycastHit raycastHit;
                 if (Physics.Raycast(PlayerController.GetMouseRay(), out raycastHit, 1000, layerMask))
@@ -52,16 +51,16 @@ namespace RPG.Abilities.Targeting
                     if (Input.GetMouseButtonDown(0))
                     {
                         yield return new WaitWhile(() => Input.GetMouseButton(0)); // Don't proceed until mouse button has been released.
-                        indicatorInstance.SetActive(false);
-                        playerController.enabled = true;
                         data.SetTargetedPoint(raycastHit.point);
-                        data.SetTargets(GetGameObjectsinRadius(raycastHit.point));
-                        finished();
-                        yield break;
+                        data.SetTargets(GetGameObjectsinRadius(raycastHit.point));                        
+                        break;
                     }
                 }
                 yield return null;
-            }            
+            }
+            indicatorInstance.SetActive(false);
+            playerController.enabled = true;
+            finished();
         }
 
         private IEnumerable<GameObject> GetGameObjectsinRadius(Vector3 point)

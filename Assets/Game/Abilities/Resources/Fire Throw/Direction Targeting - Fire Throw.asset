@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e147e9106841a9e47b9b842995863f5e, type: 3}
-  m_Name: Targeting - Super Mega Splash
+  m_Script: {fileID: 11500000, guid: a1117ffb9e870254db1469bb5362aa07, type: 3}
+  m_Name: Direction Targeting - Fire Throw
   m_EditorClassIdentifier: 
   cursorTexture: {fileID: 2800000, guid: 2a2b4775272c890448e1bd6239fdfc84, type: 3}
-  cursorHotspot: {x: 0, y: 0}
-  areaEffectRadius: 5
-  areaEffectIndicator: {fileID: 935811045951397303, guid: a2a0b0385ff9da240b48202ad3bfe1f7,
-    type: 3}
+  cursorHotspot: {x: 11, y: 6}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  groundOffset: 1

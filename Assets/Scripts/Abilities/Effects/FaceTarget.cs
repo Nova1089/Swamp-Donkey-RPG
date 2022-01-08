@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace RPG.Abilities
+namespace RPG.Abilities.Effects
 {
     [CreateAssetMenu(fileName = "Face Target", menuName = "Abilities/Effects/Face Target", order = 0)]
     public class FaceTarget : EffectStrategy

@@ -1,5 +1,6 @@
 ﻿using GameDevTV.Inventories;
 using RPG.Attributes;
+using RPG.Core;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,12 +31,17 @@ namespace RPG.Abilities
             if (cooldownStore.GetTimeRemaining(this) > 0) return;
             
             AbilityData data = new AbilityData(user);
+
+            ActionScheduler actionScheduler = user.GetComponent<ActionScheduler>();
+            actionScheduler.StartAction(data);
+
             targetingStrategy.StartTargeting(data, 
                 () => TargetAcquired(data));
         }
 
         private void TargetAcquired(AbilityData data)
         {
+            if (data.IsCancelled()) return;
             if (!mana.UseMana(manaCost)) return;
             cooldownStore.StartCooldown(this, cooldownTime);
 

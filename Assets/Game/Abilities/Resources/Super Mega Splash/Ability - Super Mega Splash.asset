@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: d382a3d6-cb95-49ea-82e6-af1c28bc86b7
   displayName: Super Mega Splash
-  description: SPLASH!!!!
+  description: Deal instant damage to enemies at target location.
   icon: {fileID: 21300000, guid: a1ec2c0ddc0da634b85f0f465fec2d0d, type: 3}
   pickup: {fileID: 743510599615345213, guid: 0715da6d594191c43a75bbdd035e8646, type: 3}
   stackable: 0
@@ -26,8 +26,8 @@ MonoBehaviour:
   targetingStrategy: {fileID: 11400000, guid: 9b0e67ee748f68e44a072be718f250a7, type: 2}
   filterStrategies:
   - {fileID: 11400000, guid: 07fa4e6e2cac3124fa76a80be2b04164, type: 2}
+  - {fileID: 11400000, guid: fd8b21427d6577249937577e4371c5af, type: 2}
   effectStrategies:
-  - {fileID: 11400000, guid: 9366018809bc0e34bb2091996d868ff9, type: 2}
-  - {fileID: 11400000, guid: 76cfc962422b0fb42b1a9596c4345f21, type: 2}
   - {fileID: 11400000, guid: a0900ef8c76cf5640b559da1a5ed6970, type: 2}
   - {fileID: 11400000, guid: b92ccd6a6e0073945b74639be082c2de, type: 2}
+  - {fileID: 11400000, guid: 73521c9788039fc49ac5e5e4a2c0e0c4, type: 2}

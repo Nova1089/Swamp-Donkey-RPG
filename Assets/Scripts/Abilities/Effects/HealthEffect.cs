@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RPG.Abilities
+namespace RPG.Abilities.Effects
 {
     [CreateAssetMenu(fileName = "Health Effect", menuName = "Abilities/Effects/Health", order = 0)]
     public class HealthEffect : EffectStrategy

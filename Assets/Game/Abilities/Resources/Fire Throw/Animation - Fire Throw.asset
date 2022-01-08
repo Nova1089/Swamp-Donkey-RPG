@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe25c66dab424244876eb6f56a06415, type: 3}
-  m_Name: Face Target Effect - Super Mega Splash
+  m_Script: {fileID: 11500000, guid: a418178a9a0beba449f78d315d8f6db9, type: 3}
+  m_Name: Animation - Fire Throw
   m_EditorClassIdentifier: 
+  animatorTrigger: ability1

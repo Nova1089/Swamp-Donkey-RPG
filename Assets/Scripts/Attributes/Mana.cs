@@ -1,11 +1,12 @@
-﻿using GameDevTV.Utils;
+﻿using GameDevTV.Saving;
+using GameDevTV.Utils;
 using RPG.Stats;
 using System.Collections;
 using UnityEngine;
 
 namespace RPG.Attributes
 {
-    public class Mana : MonoBehaviour
+    public class Mana : MonoBehaviour, ISaveable
     {
 
         // state
@@ -49,6 +50,16 @@ namespace RPG.Attributes
             if (manaToUse > mana.value) return false;
             mana.value -= manaToUse;
             return true;
+        }
+
+        public object CaptureState()
+        {
+            return mana.value;
+        }
+
+        public void RestoreState(object state)
+        {
+            mana.value = (float)state;
         }
     }
 }

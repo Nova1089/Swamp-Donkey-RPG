@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7174d544ac165f14a9cd5df9138b3db9, type: 3}
+  m_Name: Ability - Fire Spray
+  m_EditorClassIdentifier: 
+  itemID: 928bae91-b26d-424e-9f54-8bde78640fe6
+  displayName: Fire Spray
+  description: Send homing fireballs at enemies at target location.
+  icon: {fileID: 21300000, guid: 17b8c3a203740425fa9d11a2a8efeb62, type: 3}
+  pickup: {fileID: 743510599615345213, guid: 0715da6d594191c43a75bbdd035e8646, type: 3}
+  stackable: 0
+  price: 200
+  category: 5
+  consumable: 0
+  manaCost: 25
+  cooldownTime: 2
+  targetingStrategy: {fileID: 11400000, guid: b5e065f4a7c91ab46b1f0d297361484e, type: 2}
+  filterStrategies:
+  - {fileID: 11400000, guid: 5fd7601466382a7449ad358ee90a61e1, type: 2}
+  - {fileID: 11400000, guid: 4024a7d3f41fe0a4b81adaffed651ce0, type: 2}
+  effectStrategies:
+  - {fileID: 11400000, guid: c0dab942d86f2934a86f997fe2db95c5, type: 2}
+  - {fileID: 11400000, guid: b1ee9308f673e4542a2dd0e83df0fea0, type: 2}
+  - {fileID: 11400000, guid: 675422bc7d9299a4eb3f42da0afa9ce5, type: 2}

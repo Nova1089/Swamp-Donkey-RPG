@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RPG.Abilities
+namespace RPG.Abilities.Effects
 {
     [CreateAssetMenu(fileName = "Spawn Target Prefab Effect", menuName = "Abilities/Effects/Spawn Target Prefab", order = 0)]
     public class SpawnTargetPrefabEffect : EffectStrategy
