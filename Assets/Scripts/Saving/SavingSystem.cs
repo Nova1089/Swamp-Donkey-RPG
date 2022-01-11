@@ -57,6 +57,24 @@ namespace GameDevTV.Saving
             RestoreState(LoadFile(saveFile));
         }
 
+        public IEnumerable<string> ListSaves()
+        {            
+            foreach (string path in Directory.EnumerateFiles(Application.persistentDataPath))
+            {
+                if (Path.GetExtension(path) == ".sav")
+                {
+                    yield return Path.GetFileNameWithoutExtension(path);
+                }
+            }
+        }
+
+
+        public bool SaveFileExists(string saveFile)
+        {
+            string path = GetPathFromSaveFile(saveFile);
+            return File.Exists(path);
+        }
+
         // PRIVATE
 
         private Dictionary<string, object> LoadFile(string saveFile)

@@ -213,7 +213,7 @@ MonoBehaviour:
   text: I've got some foot cream!
   children:
   - 06aefc80-9a36-43c9-8a53-7a79656179d4
-  position: {x: 262, y: 490}
+  position: {x: 261, y: 490}
   width: 200
   height: 100
   onEnterAction: 

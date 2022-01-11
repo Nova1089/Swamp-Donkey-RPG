@@ -21,6 +21,8 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-7859824296977439455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,6 +43,8 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-6197151391395702027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +66,8 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: Bunion
+  condition:
+    and: []
 --- !u!114 &-3167794652645976355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +88,8 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: Attack
+  condition:
+    and: []
 --- !u!114 &-2803237767241881767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +111,8 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-1288338211496027107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +134,8 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +185,8 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &996060183671738734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +208,8 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &1864009846596011265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,11 +226,13 @@ MonoBehaviour:
   text: I know everyone here, and I don't recognize you!
   children:
   - f7ba7687-920e-423c-9ad8-b16f4cf6878b
-  position: {x: 600, y: 92}
+  position: {x: 600, y: 91}
   width: 200
   height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &2339146905174993577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,11 +250,13 @@ MonoBehaviour:
   children:
   - 2b0859a7-dcaa-424f-9912-e5d99f8fdeea
   - 7303e4d9-7746-48be-ba45-ddb23adf329d
-  position: {x: 136, y: 283}
+  position: {x: 136, y: 282}
   width: 200
   height: 100
   onEnterAction: TestRootEntry
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &2450868070382506887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +279,8 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: TestNPCExit
+  condition:
+    and: []
 --- !u!114 &4687320411023884838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +302,8 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &6052900272499433117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,8 +322,10 @@ MonoBehaviour:
   - f7ba7687-920e-423c-9ad8-b16f4cf6878b
   - 6334ff97-364e-45e0-92b0-b2398ca747af
   - 347f8e99-c6fb-4330-bfef-ac0e5d6f14f5
-  position: {x: 353, y: 179}
+  position: {x: 353, y: 178}
   width: 200
   height: 100
   onEnterAction: TestSelection
   onExitAction: 
+  condition:
+    and: []

@@ -7,6 +7,7 @@ using RPG.Movement;
 using UnityEngine;
 using RPG.Attributes;
 using GameDevTV.Utils;
+using UnityEngine.AI;
 
 namespace RPG.Control
 {
@@ -21,11 +22,13 @@ namespace RPG.Control
         [Range(0,1)]
         [SerializeField] float patrolSpeedFraction = 0.2f;
         [SerializeField] float shoutDistance = 5f;
+        [SerializeField] float healthResetPercentage;
 
         Fighter fighter;
         Health health;
         Mover mover;
         GameObject player;
+        NavMeshAgent navMeshAgent;
 
         LazyValue<Vector3> guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
@@ -38,17 +41,15 @@ namespace RPG.Control
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
             player = GameObject.FindWithTag("Player");
+            navMeshAgent = GetComponent<NavMeshAgent>();
 
             guardPosition = new LazyValue<Vector3>(GetGuardPosition);
+            guardPosition.ForceInit();
         }
 
         private Vector3 GetGuardPosition()
         {
             return transform.position;
-        }
-
-        private void Start() {
-            guardPosition.ForceInit();
         }
 
         private void Update()
@@ -69,6 +70,21 @@ namespace RPG.Control
             }
 
             UpdateTimers();
+        }
+
+        public void ResetState()
+        {
+            if (health && health.IsDead()) return;
+            if (health && !health.IsDead())
+            {
+                health.Heal(health.GetMaxHealthPoints() * healthResetPercentage / 100);
+            }
+
+            navMeshAgent.Warp(guardPosition.value);
+            timeSinceLastSawPlayer = Mathf.Infinity;
+            timeSinceArrivedAtWaypoint = Mathf.Infinity;
+            timeSinceAggrevated = Mathf.Infinity;
+            currentWaypointIndex = 0;
         }
 
         public void Aggrevate()

@@ -10,6 +10,8 @@ namespace RPG.Core
 
         public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
         {
+            if (and == null) return false;
+
             foreach (Disjunction disjunction in and)
             {
                 if (!disjunction.Check(evaluators))
