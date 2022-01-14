@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7851990625468166962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: c26edeb6-9c22-48c1-8af0-b855130c0629
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Go beat them up for me!
+  children: []
+  position: {x: 224, y: 537}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee927c967a37f9f46abebdc6efe47827, type: 3}
+  m_Name: Warning Barracks
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1494996508154096994}
+  - {fileID: 8367405435661287657}
+  - {fileID: -7851990625468166962}
+  newNodeOffset: {x: 25, y: 0}
+--- !u!114 &1494996508154096994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 2dfb5a1a-8293-496b-a0fc-b5568e916fbe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: There is a guard training barracks this way.
+  children:
+  - a48e6ef1-78ea-432b-b145-50efb2a8acb5
+  - c26edeb6-9c22-48c1-8af0-b855130c0629
+  position: {x: 8, y: 502}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &8367405435661287657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: a48e6ef1-78ea-432b-b145-50efb2a8acb5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You will need better equipment to fight them!
+  children: []
+  position: {x: 224, y: 384}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

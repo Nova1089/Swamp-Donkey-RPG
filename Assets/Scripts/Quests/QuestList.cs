@@ -1,6 +1,6 @@
 using GameDevTV.Inventories;
 using GameDevTV.Saving;
-using RPG.Core;
+using GameDevTV.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +14,11 @@ namespace RPG.Quests
 
         // events
         public event Action OnUpdate;
+
+        void Update()
+        {
+            CompleteObjectivesByPredicates();
+        }
 
         public void AddQuest(Quest quest)
         {
@@ -71,6 +76,25 @@ namespace RPG.Quests
                 if (!isSuccess)
                 {
                     GetComponent<ItemDropper>().DropItem(reward.item, reward.number);
+                }
+            }
+        }
+
+        private void CompleteObjectivesByPredicates()
+        {
+            foreach (QuestStatus status in questStatuses)
+            {
+                if (status.IsComplete()) continue;
+
+                Quest quest = status.GetQuest();
+                foreach (var objective in quest.GetObjectives())
+                {
+                    if (status.IsObjectiveCompleted(objective.id)) continue;
+                    if (!objective.usesCondition) continue;
+                    if (objective.completionCondition.Check(GetComponents<IPredicateEvaluator>()))
+                    {
+                        CompleteObjective(quest, objective.id);
+                    }
                 }
             }
         }

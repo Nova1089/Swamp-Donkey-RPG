@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee927c967a37f9f46abebdc6efe47827, type: 3}
+  m_Name: Warning Castle
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1494996508154096994}
+  - {fileID: 3517673008158684603}
+  newNodeOffset: {x: 25, y: 0}
+--- !u!114 &1494996508154096994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 2dfb5a1a-8293-496b-a0fc-b5568e916fbe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: The guard at the castle are tough!
+  children:
+  - 2706c52b-bd62-4387-9da2-da000214e22e
+  position: {x: 18, y: 610}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3517673008158684603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 2706c52b-bd62-4387-9da2-da000214e22e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: But rich!
+  children: []
+  position: {x: 243, y: 610}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

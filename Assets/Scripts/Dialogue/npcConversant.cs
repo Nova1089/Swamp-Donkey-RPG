@@ -29,7 +29,7 @@ namespace RPG.Dialogue
         public bool HandleRaycast(PlayerController callingController)
         {
             if (dialogueMap == null) return false;
-            if (health.IsDead()) return false;
+            if (health && health.IsDead()) return false;
             
             if (Input.GetMouseButtonDown(0))
             {

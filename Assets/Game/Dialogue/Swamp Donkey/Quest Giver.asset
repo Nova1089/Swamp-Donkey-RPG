@@ -1,0 +1,402 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8875886430191741413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 5930f7c8-2e4f-4e23-b465-12ebc47a3d87
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Slain the Swamp Donkey for us?
+  children:
+  - fb3aa848-4cdf-4865-b314-407232b3d506
+  position: {x: 291, y: 445}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Swamp Donkey
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Swamp Donkey
+        negate: 1
+--- !u!114 &-7390736821407280394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: c9eadfcd-1696-4ee4-9a29-1249320e5eed
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Oh what terrible times we live in!
+  children:
+  - 5c7f23ed-e34d-4d80-87f2-37897af6fe54
+  - 9f675195-72e0-4ea6-aa1d-aa400ce472a7
+  - 92a5aba8-3f9d-48ed-8176-27f64085f120
+  position: {x: 291, y: 333}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Swamp Donkey
+        negate: 1
+--- !u!114 &-7189630871396003630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: d2ada186-4905-40d3-b964-dba8077c1a93
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No
+  children:
+  - 705e216f-2414-471a-aec2-67d9d0cfa34f
+  position: {x: 1416, y: 318}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-5517880961669909484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 9f675195-72e0-4ea6-aa1d-aa400ce472a7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Am I getting a quest from this?
+  children:
+  - fd778002-3a53-4f2c-afac-3d4d93b6bd59
+  position: {x: 522, y: 296}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-4439277751391713487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 705e216f-2414-471a-aec2-67d9d0cfa34f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Oh, good bye.
+  children: []
+  position: {x: 1703, y: 408}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-4163556513926710577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 5c7f23ed-e34d-4d80-87f2-37897af6fe54
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: What's the matter?
+  children:
+  - f33e86b2-30e3-4673-a45d-dd315e76ddda
+  position: {x: 525, y: 193}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-3469740882633314610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: f33e86b2-30e3-4673-a45d-dd315e76ddda
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: The terrible Swamp Donkey is terrorising the children.
+  children:
+  - d5affb58-f531-4bd9-9453-36c167cb8a03
+  position: {x: 966, y: 210}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-2838272754727792292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: a2b7ef20-8a13-41db-ba1a-78f4df3bcb87
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You did it! You actually slew the Swamp Donkey! My eternal gratitude to you!
+  children: []
+  position: {x: 291, y: 556}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Swamp Donkey
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Swamp Donkey
+        negate: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee927c967a37f9f46abebdc6efe47827, type: 3}
+  m_Name: Quest Giver
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1298720443851029049}
+  - {fileID: -7390736821407280394}
+  - {fileID: -8875886430191741413}
+  - {fileID: -2838272754727792292}
+  - {fileID: -4163556513926710577}
+  - {fileID: -5517880961669909484}
+  - {fileID: 6951898359041275275}
+  - {fileID: 2024700880065757855}
+  - {fileID: 3411571030739595928}
+  - {fileID: -3469740882633314610}
+  - {fileID: 8955605702384989545}
+  - {fileID: -4439277751391713487}
+  - {fileID: -7189630871396003630}
+  - {fileID: 4435288525543346670}
+  - {fileID: 5875920654868216531}
+  newNodeOffset: {x: 25, y: 0}
+--- !u!114 &1298720443851029049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 406b9ad8-356c-4454-9bd5-b156c6df4281
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hello stranger!
+  children:
+  - c9eadfcd-1696-4ee4-9a29-1249320e5eed
+  - 5930f7c8-2e4f-4e23-b465-12ebc47a3d87
+  - a2b7ef20-8a13-41db-ba1a-78f4df3bcb87
+  position: {x: 67, y: 446}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &2024700880065757855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 92a5aba8-3f9d-48ed-8176-27f64085f120
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No drama here!
+  children:
+  - 705e216f-2414-471a-aec2-67d9d0cfa34f
+  position: {x: 520, y: 407}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3411571030739595928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: fb3aa848-4cdf-4865-b314-407232b3d506
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: What are you waiting for!
+  children: []
+  position: {x: 529, y: 518}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &4435288525543346670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 763196cf-2f00-4009-b1a9-02d05a1e43f4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Yes
+  children:
+  - ebd3deb6-ad5d-45e7-8672-e93089a8c8a2
+  position: {x: 1412, y: 205}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: GiveQuest
+  condition:
+    and: []
+--- !u!114 &5875920654868216531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: ebd3deb6-ad5d-45e7-8672-e93089a8c8a2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Amazing!
+  children: []
+  position: {x: 1637, y: 205}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &6951898359041275275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: fd778002-3a53-4f2c-afac-3d4d93b6bd59
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Yes!
+  children:
+  - f33e86b2-30e3-4673-a45d-dd315e76ddda
+  position: {x: 744, y: 314}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &8955605702384989545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: d5affb58-f531-4bd9-9453-36c167cb8a03
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Could you slay the terrible beast?
+  children:
+  - d2ada186-4905-40d3-b964-dba8077c1a93
+  - 763196cf-2f00-4009-b1a9-02d05a1e43f4
+  position: {x: 1179, y: 210}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

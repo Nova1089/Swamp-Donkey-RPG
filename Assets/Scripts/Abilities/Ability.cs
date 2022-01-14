@@ -21,22 +21,23 @@ namespace RPG.Abilities
         CooldownStore cooldownStore;
         Mana mana;
 
-        public override void Use(GameObject user)
+        public override bool Use(GameObject user)
         {
             mana = user.GetComponent<Mana>();
-            if (manaCost > mana.GetCurrentMana()) return;
+            if (manaCost > mana.GetCurrentMana()) return false;
 
             cooldownStore = user.GetComponent<CooldownStore>();
-            if (cooldownStore == null) return;
-            if (cooldownStore.GetTimeRemaining(this) > 0) return;
+            if (cooldownStore == null) return false;
+            if (cooldownStore.GetTimeRemaining(this) > 0) return false;
             
             AbilityData data = new AbilityData(user);
 
             ActionScheduler actionScheduler = user.GetComponent<ActionScheduler>();
             actionScheduler.StartAction(data);
 
-            targetingStrategy.StartTargeting(data, 
-                () => TargetAcquired(data));
+            targetingStrategy.StartTargeting(data, () => TargetAcquired(data));
+
+            return true;
         }
 
         private void TargetAcquired(AbilityData data)
