@@ -37,7 +37,7 @@ namespace GameDevTV.UI.Inventories
         // PUBLIC
 
         public int MaxAcceptable(InventoryItem item)
-        {
+        {            
             EquipableItem equipableItem = item as EquipableItem;
             if (equipableItem == null) return 0;
             if (!equipableItem.CanEquip(equipLocation, playerEquipment)) return 0;

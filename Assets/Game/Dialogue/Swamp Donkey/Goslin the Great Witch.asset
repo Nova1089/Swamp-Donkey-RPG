@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee927c967a37f9f46abebdc6efe47827, type: 3}
-  m_Name: Warning Swamp Donkey
+  m_Name: Goslin the Great Witch
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 1494996508154096994}
-  - {fileID: 2979352236744803449}
-  - {fileID: 4311318395135483485}
-  - {fileID: 6582763233980225378}
+  - {fileID: 2680360846448752940}
+  - {fileID: 768926804246674197}
+  - {fileID: 5618665899829873570}
   newNodeOffset: {x: 25, y: 0}
---- !u!114 &1494996508154096994
+--- !u!114 &768926804246674197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,22 +27,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
-  m_Name: 2dfb5a1a-8293-496b-a0fc-b5568e916fbe
+  m_Name: b932446f-2dc4-4446-b68c-ee302129ccd3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Hello pal
+  children: []
+  position: {x: 255, y: 407}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &2680360846448752940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 20ab1301-3612-4048-a119-79ff51bbc6d0
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Watch out! The swamp donkey lies this way!
+  text: Welcome matey!
   children:
-  - a38c9102-b14b-432b-8746-a5d04b75ae59
-  - 2914209b-4ae5-4380-865f-a978ac183b05
-  - 841d11ed-b462-4dda-bc7c-0f7c9060dc6a
-  position: {x: 24, y: 493}
+  - b932446f-2dc4-4446-b68c-ee302129ccd3
+  - 0503c6e7-7e61-4a05-b7a4-b278cb3eac13
+  position: {x: 30, y: 407}
   width: 200
   height: 100
   onEnterAction: 
   onExitAction: 
   condition:
     and: []
---- !u!114 &2979352236744803449
+--- !u!114 &5618665899829873570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,56 +73,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
-  m_Name: a38c9102-b14b-432b-8746-a5d04b75ae59
+  m_Name: 0503c6e7-7e61-4a05-b7a4-b278cb3eac13
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: You seem too weak to tackle him!
+  isPlayerSpeaking: 1
+  text: Whaddup
   children: []
-  position: {x: 249, y: 353}
-  width: 200
-  height: 100
-  onEnterAction: 
-  onExitAction: 
-  condition:
-    and: []
---- !u!114 &4311318395135483485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
-  m_Name: 2914209b-4ae5-4380-865f-a978ac183b05
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: I think a sword might help.
-  children: []
-  position: {x: 249, y: 493}
-  width: 200
-  height: 100
-  onEnterAction: 
-  onExitAction: 
-  condition:
-    and: []
---- !u!114 &6582763233980225378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
-  m_Name: 841d11ed-b462-4dda-bc7c-0f7c9060dc6a
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: That sword might do the trick!
-  children: []
-  position: {x: 249, y: 622}
+  position: {x: 257, y: 504}
   width: 200
   height: 100
   onEnterAction: 

@@ -16,7 +16,7 @@ MonoBehaviour:
   text: Slain the Swamp Donkey for us?
   children:
   - fb3aa848-4cdf-4865-b314-407232b3d506
-  position: {x: 291, y: 445}
+  position: {x: 292, y: 445}
   width: 200
   height: 100
   onEnterAction: 
@@ -86,6 +86,28 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &-6106946285225191482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 95bf78db-7ecd-4dc7-b6d8-ebec8e4b25a2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Abra cad' ali baba!!
+  children: []
+  position: {x: 1152, y: 682}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-5517880961669909484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +124,31 @@ MonoBehaviour:
   text: Am I getting a quest from this?
   children:
   - fd778002-3a53-4f2c-afac-3d4d93b6bd59
-  position: {x: 522, y: 296}
+  position: {x: 521, y: 296}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-5150160589167452957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 6753316c-24a5-4642-816c-73e45306020a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: As another surpise, would you like me to show you some magic?
+  children:
+  - 37964175-35c2-4670-be8f-6f91fa1944e8
+  - af3d04bb-4e6d-4a46-a80c-a5ecf8c9c7d5
+  position: {x: 530, y: 655}
   width: 200
   height: 100
   onEnterAction: 
@@ -154,6 +200,29 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &-4101623274099620241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 37964175-35c2-4670-be8f-6f91fa1944e8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Let's go!
+  children:
+  - 95bf78db-7ecd-4dc7-b6d8-ebec8e4b25a2
+  position: {x: 903, y: 689}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-3469740882633314610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,23 +260,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: You did it! You actually slew the Swamp Donkey! My eternal gratitude to you!
-  children: []
-  position: {x: 291, y: 556}
+    Take 1000g for your trouble.
+  children:
+  - 6753316c-24a5-4642-816c-73e45306020a
+  position: {x: 304, y: 655}
   width: 200
   height: 100
-  onEnterAction: 
+  onEnterAction: CompleteReturnObjective
   onExitAction: 
   condition:
     and:
     - or:
-      - predicate: HasQuest
+      - predicate: CompletedObjectives
         parameters:
         - Swamp Donkey
-        negate: 0
-    - or:
-      - predicate: CompletedQuest
-        parameters:
-        - Swamp Donkey
+        - slay
         negate: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -219,7 +286,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee927c967a37f9f46abebdc6efe47827, type: 3}
-  m_Name: Quest Giver
+  m_Name: Goslin the Gossiper
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 1298720443851029049}
@@ -237,6 +304,14 @@ MonoBehaviour:
   - {fileID: -7189630871396003630}
   - {fileID: 4435288525543346670}
   - {fileID: 5875920654868216531}
+  - {fileID: -5150160589167452957}
+  - {fileID: -4101623274099620241}
+  - {fileID: 4712290881377567726}
+  - {fileID: 8046755607900908890}
+  - {fileID: -6106946285225191482}
+  - {fileID: 2260208130770480872}
+  - {fileID: 7190298495019135728}
+  - {fileID: 4078627843056584205}
   newNodeOffset: {x: 25, y: 0}
 --- !u!114 &1298720443851029049
 MonoBehaviour:
@@ -251,12 +326,13 @@ MonoBehaviour:
   m_Name: 406b9ad8-356c-4454-9bd5-b156c6df4281
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Hello stranger!
+  text: Hello stranger.
   children:
   - c9eadfcd-1696-4ee4-9a29-1249320e5eed
   - 5930f7c8-2e4f-4e23-b465-12ebc47a3d87
   - a2b7ef20-8a13-41db-ba1a-78f4df3bcb87
-  position: {x: 67, y: 446}
+  - 0c5c99d7-c258-4327-990b-ae7133e25515
+  position: {x: 14, y: 528}
   width: 200
   height: 100
   onEnterAction: 
@@ -286,6 +362,36 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &2260208130770480872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 0c5c99d7-c258-4327-990b-ae7133e25515
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ready for me to blow your mind with some magic?
+  children:
+  - 37964175-35c2-4670-be8f-6f91fa1944e8
+  - ba34de43-13be-4611-9b6d-960b3c7a7c0b
+  position: {x: 304, y: 805}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: CompletedObjectives
+        parameters:
+        - Swamp Donkey
+        - return
+        negate: 0
 --- !u!114 &3411571030739595928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,9 +405,31 @@ MonoBehaviour:
   m_Name: fb3aa848-4cdf-4865-b314-407232b3d506
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: What are you waiting for!
+  text: What are you waiting for?!
   children: []
-  position: {x: 529, y: 518}
+  position: {x: 535, y: 517}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &4078627843056584205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 744e78db-8153-480d-8ad6-8838f477e5e2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I'm sure you'll get curious one day.
+  children: []
+  position: {x: 900, y: 954}
   width: 200
   height: 100
   onEnterAction: 
@@ -329,6 +457,29 @@ MonoBehaviour:
   height: 100
   onEnterAction: 
   onExitAction: GiveQuest
+  condition:
+    and: []
+--- !u!114 &4712290881377567726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: af3d04bb-4e6d-4a46-a80c-a5ecf8c9c7d5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No thanks, I don't mess with witchcraft.
+  children:
+  - 9ca69a1e-3b61-4a06-9cd0-0c65ad76a211
+  position: {x: 897, y: 823}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
   condition:
     and: []
 --- !u!114 &5875920654868216531
@@ -370,6 +521,51 @@ MonoBehaviour:
   children:
   - f33e86b2-30e3-4673-a45d-dd315e76ddda
   position: {x: 744, y: 314}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &7190298495019135728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: ba34de43-13be-4611-9b6d-960b3c7a7c0b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No way man. That stuff gives me the creeps.
+  children:
+  - 744e78db-8153-480d-8ad6-8838f477e5e2
+  position: {x: 629, y: 895}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &8046755607900908890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 9ca69a1e-3b61-4a06-9cd0-0c65ad76a211
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Alrighty then you scurvy dog. Come back if you change your mind.
+  children: []
+  position: {x: 1152, y: 820}
   width: 200
   height: 100
   onEnterAction: 

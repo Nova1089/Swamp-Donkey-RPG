@@ -130,11 +130,16 @@ namespace RPG.Quests
                 {
                     case "HasQuest":
                         return HasQuest(Quest.GetByName(parameter));
-                    case "CompleteQuest":
+                    case "CompletedQuest":
                         Quest quest = Quest.GetByName(parameter);
                         QuestStatus questStatus = GetQuestStatus(quest);
                         if (questStatus == null) return false;
                         return questStatus.IsComplete();
+                    case "CompletedObjectives":
+                        Quest thisQuest = Quest.GetByName(parameter);
+                        QuestStatus thisQuestStatus = GetQuestStatus(thisQuest);
+                        if (thisQuestStatus == null) return false;
+                        return thisQuestStatus.IsObjectiveCompleted(parameters[1]);
                 }
             }
             return null;

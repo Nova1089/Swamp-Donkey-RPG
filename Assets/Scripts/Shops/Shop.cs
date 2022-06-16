@@ -166,6 +166,8 @@ namespace RPG.Shops
             var availabilities = GetAvailabilities();
             int availability = availabilities[item];
 
+            if (availability <= 0) return;
+
             if (currentTransactionQuantity + quantity > availability)
             {
                 transaction[item] = availability;
@@ -250,7 +252,7 @@ namespace RPG.Shops
         {
             if (Input.GetMouseButtonDown(0))
             {
-                callingController.GetComponent<Shopper>().SetActiveShop(this);
+                callingController.GetComponent<Shopper>().ComeAndShop(this);
             }
             return true;
         }

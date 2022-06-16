@@ -34,7 +34,7 @@ namespace RPG.Dialogue
             if (Input.GetMouseButtonDown(0))
             {
                 playerConversant = callingController.GetComponent<PlayerConversant>();
-                playerConversant.StartDialogue(this, dialogueMap);
+                playerConversant.ComeAndTalk(this, dialogueMap);
             }
             return true;            
         }

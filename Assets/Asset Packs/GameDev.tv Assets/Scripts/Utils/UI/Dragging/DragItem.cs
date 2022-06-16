@@ -89,7 +89,10 @@ namespace GameDevTV.Core.UI.Dragging
 
         private void DropItemIntoContainer(IDragDestination<T> destination)
         {
-            if (object.ReferenceEquals(destination, source)) return;
+            if (object.ReferenceEquals(destination, source))
+            {
+                return;
+            }
 
             var destinationContainer = destination as IDragContainer<T>;
             var sourceContainer = source as IDragContainer<T>;
@@ -102,7 +105,6 @@ namespace GameDevTV.Core.UI.Dragging
                 AttemptSimpleTransfer(destination);
                 return;
             }
-
             AttemptSwap(destinationContainer, sourceContainer);
         }
 
@@ -156,7 +158,6 @@ namespace GameDevTV.Core.UI.Dragging
         {
             var draggingItem = source.GetItem();
             var draggingNumber = source.GetNumber();
-
             var acceptable = destination.MaxAcceptable(draggingItem);
             var toTransfer = Mathf.Min(acceptable, draggingNumber);
 

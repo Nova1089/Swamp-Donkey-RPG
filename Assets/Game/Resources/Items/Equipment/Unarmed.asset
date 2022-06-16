@@ -21,6 +21,8 @@ MonoBehaviour:
   price: 0
   category: 3
   allowedEquipLocation: 5
+  equipCondition:
+    and: []
   animatorOverride: {fileID: 0}
   equippedPrefab: {fileID: 442137872338528657, guid: 8786ea0ff0548a84f927488b94467170,
     type: 3}

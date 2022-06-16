@@ -35,7 +35,7 @@ MonoBehaviour:
   m_Name: 140fa0c6-8d14-44fd-a98f-a2869bb68a46
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Apart from ploughing my fields? Try attacking the guards.
+  text: Apart from ploughing my fields? Try attacking the goons.
   children:
   - 77139b2c-d189-4964-81c6-367b09786271
   position: {x: 692, y: 273}
@@ -84,13 +84,19 @@ MonoBehaviour:
   children:
   - 2963252e-02d0-4abc-aa69-5e5b3594cd51
   - 96d5fb64-57bf-4fbc-8327-5cbc3168b6f7
-  position: {x: 245, y: 364}
+  position: {x: 246, y: 364}
   width: 200
   height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: MinimumTrait
+        parameters:
+        - Strength
+        - 4
+        negate: 1
 --- !u!114 &-362975132765605037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,13 +112,18 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: Oh wow! You've got it right there!
   children: []
-  position: {x: 242, y: 617}
+  position: {x: 242, y: 619}
   width: 200
   height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasItemEquipped
+        parameters:
+        - 77ad666c-513c-4c88-87b2-c8594bcd5a89
+        negate: 0
 --- !u!114 &-298829630532220478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +157,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee927c967a37f9f46abebdc6efe47827, type: 3}
-  m_Name: Hint Giver
+  m_Name: Farmer Joe
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 8000269706580268369}
@@ -290,14 +301,25 @@ MonoBehaviour:
   m_Name: 86e126fb-c1fc-4199-a26f-05aee99ffc7b
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: I bet you could wield it, as strong as you !
+  text: I bet you could wield it, as strong as you are!
   children:
   - ea062fd9-9f91-442e-91c5-fda83937dfb4
   - 09c06df6-8aab-4553-8f57-c541c4d8d2c3
-  position: {x: 242, y: 486}
+  position: {x: 241, y: 487}
   width: 200
   height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: MinimumTrait
+        parameters:
+        - Strength
+        - 4
+        negate: 0
+    - or:
+      - predicate: HasItemEquipped
+        parameters:
+        - 77ad666c-513c-4c88-87b2-c8594bcd5a89
+        negate: 1

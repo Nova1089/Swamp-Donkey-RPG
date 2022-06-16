@@ -21,6 +21,8 @@ MonoBehaviour:
   price: 150
   category: 2
   allowedEquipLocation: 5
+  equipCondition:
+    and: []
   animatorOverride: {fileID: 22100000, guid: d934b9a3e4d4f4f45bf3f9cc5a3a222d, type: 2}
   equippedPrefab: {fileID: 9173292970485315076, guid: ad020399ab7238a4ca625ce5af50e3d0,
     type: 3}

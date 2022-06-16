@@ -27,11 +27,19 @@ namespace RPG.Control
             }
         }
 
+        public void Pickup()
+        {
+            pickup.PickupItem();
+        }
+
         public bool HandleRaycast(PlayerController callingController)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                pickup.PickupItem();
+                var collector = callingController.GetComponent<Collector>();
+                if (collector == null) return false;
+
+                collector.Pickup(this);
             }
             return true;
         }

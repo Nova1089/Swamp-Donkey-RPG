@@ -16371,6 +16371,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6858167155770999514, guid: 3ce22c877e3ecc647be50d35c85348bc,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -224.243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858167155770999514, guid: 3ce22c877e3ecc647be50d35c85348bc,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 408.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858167155770999514, guid: 3ce22c877e3ecc647be50d35c85348bc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858167155770999514, guid: 3ce22c877e3ecc647be50d35c85348bc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -247
+      objectReference: {fileID: 0}
     - target: {fileID: 7199836396140865547, guid: 3ce22c877e3ecc647be50d35c85348bc,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -16475,6 +16495,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216956077948145421, guid: 3ce22c877e3ecc647be50d35c85348bc,
+        type: 3}
+      propertyPath: m_text
+      value: Swamp Donkey RPG
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216956077948145421, guid: 3ce22c877e3ecc647be50d35c85348bc,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216956077948145421, guid: 3ce22c877e3ecc647be50d35c85348bc,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 8222249336388754312, guid: 3ce22c877e3ecc647be50d35c85348bc,
         type: 3}

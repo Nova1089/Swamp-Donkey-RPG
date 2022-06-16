@@ -10,6 +10,7 @@ namespace GameDevTV.Utils
 
         public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
         {
+            if (and.Length == 0) return true;
             if (and == null) return false;
 
             foreach (Disjunction disjunction in and)
@@ -25,6 +26,8 @@ namespace GameDevTV.Utils
         [System.Serializable] class Disjunction
         {
             [SerializeField] private Predicate[] or;
+
+            
 
             public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
             {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gold Piece
   m_EditorClassIdentifier: 
   itemID: 3417ed50-dd5e-4df0-8c60-1c8474f5dd86
-  displayName: Gold Piece
+  displayName: Gold
   description: 
   icon: {fileID: 21300000, guid: 2c317dae05e94f140878e9fcf787583e, type: 3}
   pickup: {fileID: 743510599615345213, guid: 0715da6d594191c43a75bbdd035e8646, type: 3}

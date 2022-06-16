@@ -131,9 +131,10 @@ namespace RPG.UI.Shops
             currentShop.SwitchBuySellMode(!currentShop.IsBuyingMode());
         }
 
+        // called by Shop UI Quit Button
         public void Quit()
         {
-            shopper.SetActiveShop(null);
+            shopper.CancelShopping();
         }
     }
 }

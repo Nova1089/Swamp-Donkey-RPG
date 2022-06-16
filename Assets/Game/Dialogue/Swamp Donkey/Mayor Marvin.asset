@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8546619434768191423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 6bf26697-36c0-4540-af5b-231b1623c36e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Don't forget to equip your gear! Press I to open your inventory, then drag
+    and drop to equipment or hotbar in a valid slot.
+  children:
+  - 866e4759-284d-4ee4-af84-b078909fec01
+  position: {x: 1167, y: 306}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee927c967a37f9f46abebdc6efe47827, type: 3}
+  m_Name: Mayor Marvin
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1494996508154096994}
+  - {fileID: 3517673008158684603}
+  - {fileID: 8021327113547984238}
+  - {fileID: 3364712552623538711}
+  - {fileID: 2186203058935023491}
+  - {fileID: -8546619434768191423}
+  - {fileID: 1769995315089700397}
+  - {fileID: 2896250665152488120}
+  - {fileID: 1344069695958856996}
+  newNodeOffset: {x: 25, y: 0}
+--- !u!114 &1344069695958856996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 49fc083f-be9a-474f-8df0-7d1ebf2f116a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Now go get 'em for me!
+  children: []
+  position: {x: 1886, y: 307}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &1494996508154096994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 2dfb5a1a-8293-496b-a0fc-b5568e916fbe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Dear traveller! Won't you help my town? It has been overrun by goons!
+  children:
+  - 2706c52b-bd62-4387-9da2-da000214e22e
+  position: {x: 28, y: 304}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &1769995315089700397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: af35da9a-cdf2-41ed-99d6-93c9d060719c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Press T to open your traits menu. For this demo, just upgrade strength. How
+    about you try now?
+  children:
+  - 49fc083f-be9a-474f-8df0-7d1ebf2f116a
+  position: {x: 1661, y: 307}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &2186203058935023491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 18b2f8b9-5c77-4e71-943c-f438d2222214
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Press Q to open your Quest Menu! You will receive quests by talking to NPCs.
+  children:
+  - 6bf26697-36c0-4540-af5b-231b1623c36e
+  position: {x: 945, y: 305}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &2896250665152488120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 866e4759-284d-4ee4-af84-b078909fec01
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Press num keys 1-6 to use items in your action bar. Only certain items can
+    be equipped here.
+  children:
+  - af35da9a-cdf2-41ed-99d6-93c9d060719c
+  position: {x: 1419, y: 309}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3364712552623538711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 38b2725c-3d2b-4920-b488-a32a69d4a12a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Left click to move, speak, collect, and fight!
+  children:
+  - 18b2f8b9-5c77-4e71-943c-f438d2222214
+  position: {x: 720, y: 305}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3517673008158684603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 2706c52b-bd62-4387-9da2-da000214e22e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Sure. I'm here to play after all...
+  children:
+  - 6276d421-284d-4767-b847-e3af339a5ccd
+  position: {x: 261, y: 304}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &8021327113547984238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 6276d421-284d-4767-b847-e3af339a5ccd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Then you may appreciate this tutorial.
+  children:
+  - 38b2725c-3d2b-4920-b488-a32a69d4a12a
+  position: {x: 495, y: 305}
+  width: 200
+  height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

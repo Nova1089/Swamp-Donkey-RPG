@@ -15,13 +15,23 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: Go beat them up for me!
   children: []
-  position: {x: 224, y: 537}
+  position: {x: 234, y: 373}
   width: 200
   height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasItemEquipped
+        parameters:
+        - 963a989c-fbb4-42bb-a874-01b67689e9ef
+        negate: 0
+    - or:
+      - predicate: HasItemEquipped
+        parameters:
+        - dbc4811f-c954-4c07-8064-8eef14985a18
+        negate: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,7 +42,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee927c967a37f9f46abebdc6efe47827, type: 3}
-  m_Name: Warning Barracks
+  m_Name: Travis the Traveler
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 1494996508154096994}
@@ -52,11 +62,11 @@ MonoBehaviour:
   m_Name: 2dfb5a1a-8293-496b-a0fc-b5568e916fbe
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: There is a guard training barracks this way.
+  text: There is a goon training barracks this way.
   children:
   - a48e6ef1-78ea-432b-b145-50efb2a8acb5
   - c26edeb6-9c22-48c1-8af0-b855130c0629
-  position: {x: 8, y: 502}
+  position: {x: 1, y: 288}
   width: 200
   height: 100
   onEnterAction: 
@@ -78,10 +88,19 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: You will need better equipment to fight them!
   children: []
-  position: {x: 224, y: 384}
+  position: {x: 241, y: 197}
   width: 200
   height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasItemEquipped
+        parameters:
+        - 963a989c-fbb4-42bb-a874-01b67689e9ef
+        negate: 1
+      - predicate: HasItemEquipped
+        parameters:
+        - dbc4811f-c954-4c07-8064-8eef14985a18
+        negate: 1

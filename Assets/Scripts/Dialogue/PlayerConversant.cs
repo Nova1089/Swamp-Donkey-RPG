@@ -4,32 +4,79 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using RPG.Movement;
 
 namespace RPG.Dialogue
 {
     public class PlayerConversant : MonoBehaviour
     {
         // configs
-        [SerializeField] private string playerName;
+        [SerializeField] string playerName;
+        [SerializeField] float talkRange = 2f;
 
         // state
         DialogueMap currentDialogueMap;
         DialogueNode currentNode = null;
         NPCConversant currentNPCConversant = null;
         bool isChoosing = false;
+        bool isTalking = false;
+
+        // cached references
+        Mover mover;
 
         // events
         public event Action onConversationUpdated;
 
         // methods
-        public void StartDialogue(NPCConversant newNPCConversant, DialogueMap newDialogueMap)
+        private void Awake()
         {
-            currentNPCConversant = newNPCConversant;
-            if (newDialogueMap == null) return;
-            currentDialogueMap = newDialogueMap;
-            currentNode = currentDialogueMap.GetRootNode();
+            mover = GetComponent<Mover>();
+        }
+
+        private void Update()
+        {
+            if (IsWithinTalkRange() && isTalking == false)
+            {
+                StartDialogue();
+                isTalking = true;
+            }
+            else if (!IsWithinTalkRange() && isTalking == true)
+            {
+                isTalking = false;
+            }            
+        }
+
+        private bool IsWithinTalkRange()
+        {
+            if (currentNPCConversant == null) return false;
+
+            if (Vector3.Distance(currentNPCConversant.transform.position, transform.position) <= talkRange)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void StartDialogue()
+        {
+            mover.Cancel();
             TriggerEnterAction();
             onConversationUpdated();
+        }
+
+        public void ComeAndTalk(NPCConversant newNPCConversant, DialogueMap newDialogueMap)
+        {
+            if (newNPCConversant == null) return;
+            if (newDialogueMap == null) return;
+
+            currentNPCConversant = newNPCConversant;
+            currentDialogueMap = newDialogueMap;
+            currentNode = currentDialogueMap.GetRootNode();
+
+            if (!IsWithinTalkRange())
+            {
+                mover.StartMoveAction(newNPCConversant.transform.position, 1f);
+            }
         }
 
         public void Quit()
