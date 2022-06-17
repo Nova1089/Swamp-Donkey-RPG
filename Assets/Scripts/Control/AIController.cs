@@ -87,6 +87,21 @@ namespace RPG.Control
             currentWaypointIndex = 0;
         }
 
+        public bool PrepareForRespawn()
+        {
+            if (health)
+            {
+                health.Heal(health.GetMaxHealthPoints());
+            }
+
+            bool warpSuccessfull = navMeshAgent.Warp(guardPosition.value);
+            timeSinceLastSawPlayer = Mathf.Infinity;
+            timeSinceArrivedAtWaypoint = Mathf.Infinity;
+            timeSinceAggrevated = Mathf.Infinity;
+            currentWaypointIndex = 0;
+            return warpSuccessfull;
+        }
+
         public void Aggrevate()
         {
             timeSinceAggrevated = 0;
@@ -103,15 +118,14 @@ namespace RPG.Control
         {
             Vector3 nextPosition = guardPosition.value;
 
-            if (patrolPath != null)
+            if (patrolPath == null) return;
+
+            if (AtWaypoint())
             {
-                if (AtWaypoint())
-                {
-                    timeSinceArrivedAtWaypoint = 0;
-                    CycleWaypoint();
-                }
-                nextPosition = GetCurrentWaypoint();
+                timeSinceArrivedAtWaypoint = 0;
+                CycleWaypoint();
             }
+            nextPosition = GetCurrentWaypoint();
 
             if (timeSinceArrivedAtWaypoint > waypointDwellTime)
             {

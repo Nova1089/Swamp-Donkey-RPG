@@ -40,7 +40,6 @@ namespace RPG.Abilities.Targeting
                 }
                 yield return null;
             }
-
             playerController.enabled = true;
             finished();
         }
