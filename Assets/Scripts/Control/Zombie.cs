@@ -2,6 +2,7 @@ using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,67 +12,84 @@ namespace RPG.Control
     {
         // configs
         [SerializeField] float metersToLower = 2.5f;
-        [SerializeField] float popUpSpeed = .1f;
+        [SerializeField] float popUpSpeed = .75f;
 
         // state
-        MeshRenderer meshRenderer;
         Rigidbody rigidBody;
         AIController aiController;
         ActionScheduler actionScheduler;
         NavMeshAgent navMeshAgent;
         Fighter fighter;
         Mover mover;
+        float aboveGroundY = 0;
+        List<GameObject> children = new List<GameObject>();
+        
 
         void Awake()
         {
-            meshRenderer = GetComponent<MeshRenderer>();
             rigidBody = GetComponent<Rigidbody>();
             aiController = GetComponent<AIController>();
             actionScheduler = GetComponent<ActionScheduler>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             fighter = GetComponent<Fighter>();
             mover = GetComponent<Mover>();
+            foreach (Transform child in transform)
+            {
+                children.Add(child.gameObject);
+            }
         }
 
         public IEnumerator Respawn()
         {
             actionScheduler.CancelCurrentAction();
-            meshRenderer.enabled = false;
+            SetChildrenEnabled(false);
             yield return new WaitUntil(aiController.PrepareForRespawn);
-            // Vector3 currentPos = rigidBody.position;         
-            // DropUnderGround();
-            // yield return new WaitUntil(PopUp);
+            aboveGroundY = transform.position.y;
+            yield return new WaitUntil(DropUnderGround);
+            SetChildrenEnabled(true);
+            yield return new WaitUntil(PopUp);
         }
 
-        private void DropUnderGround()
+        void SetChildrenEnabled(bool value)
         {
-            navMeshAgent.enabled = false;            
-            fighter.enabled = false;
-            mover.enabled = false;
+            foreach (GameObject child in children)
+            {
+                child.SetActive(value);
+            }
+        }
+
+        bool DropUnderGround()
+        {
+            SetAIEnabled(false);
             Vector3 currentPos = rigidBody.position;
-            Vector3 undergroundPos = new Vector3(
-                currentPos.x,
-                currentPos.y - metersToLower,
-                currentPos.z);
+            Vector3 undergroundPos = currentPos + Vector3.down * metersToLower;
             transform.position = undergroundPos;
+            if (transform.position == undergroundPos)
+            {
+                return true;
+            }
+            else return false;
         }
 
         bool PopUp()
         {
-            Vector3 direction = new Vector3(
-            rigidBody.position.x,
-            rigidBody.position.y + 1 * popUpSpeed * Time.deltaTime,
-            rigidBody.position.z);
+            Vector3 direction = rigidBody.position + Vector3.up * popUpSpeed * Time.deltaTime;
             rigidBody.MovePosition(direction);
 
-            if (rigidBody.position.y >= 0)
+            if (rigidBody.position.y >= aboveGroundY)
             {
-                mover.enabled = true;                                
-                fighter.enabled = true;
-                navMeshAgent.enabled = true;
+                SetAIEnabled(true);
                 return true;
             }
             return false;
+        }
+
+        void SetAIEnabled(bool value)
+        {
+            navMeshAgent.enabled = value;
+            fighter.enabled = value;
+            mover.enabled = value;
+            aiController.enabled = value;
         }
     }
 }
