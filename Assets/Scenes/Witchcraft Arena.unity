@@ -227,6 +227,11 @@ PrefabInstance:
       propertyPath: chaseDistance
       value: 9.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3340462985768996172, guid: cbaae771bb15b2f46aa5c403a45687dc,
+        type: 3}
+      propertyPath: dropLibrary
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3565618819720395313, guid: cbaae771bb15b2f46aa5c403a45687dc,
         type: 3}
       propertyPath: m_Name
@@ -247,6 +252,11 @@ PrefabInstance:
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 838168825}
+    - target: {fileID: 6227229741000699901, guid: cbaae771bb15b2f46aa5c403a45687dc,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6227229741000699901, guid: cbaae771bb15b2f46aa5c403a45687dc,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -352,6 +362,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3481217265853933194, guid: 97794e8f32d9d574c8ed85db378e8c47,
+        type: 3}
+      propertyPath: dropLibrary
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5224142304942228539, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
@@ -367,6 +382,11 @@ PrefabInstance:
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 838168825}
+    - target: {fileID: 5224142304942228539, guid: 97794e8f32d9d574c8ed85db378e8c47,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5224142304942228539, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -4209,6 +4229,11 @@ PrefabInstance:
       propertyPath: chaseDistance
       value: 9.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3340462985768996172, guid: cbaae771bb15b2f46aa5c403a45687dc,
+        type: 3}
+      propertyPath: dropLibrary
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3565618819720395313, guid: cbaae771bb15b2f46aa5c403a45687dc,
         type: 3}
       propertyPath: m_Name
@@ -4229,6 +4254,11 @@ PrefabInstance:
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 838168825}
+    - target: {fileID: 6227229741000699901, guid: cbaae771bb15b2f46aa5c403a45687dc,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6227229741000699901, guid: cbaae771bb15b2f46aa5c403a45687dc,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -5142,6 +5172,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3481217265853933194, guid: 97794e8f32d9d574c8ed85db378e8c47,
+        type: 3}
+      propertyPath: dropLibrary
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5224142304942228539, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
@@ -5157,6 +5192,11 @@ PrefabInstance:
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 838168825}
+    - target: {fileID: 5224142304942228539, guid: 97794e8f32d9d574c8ed85db378e8c47,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5224142304942228539, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -5277,6 +5317,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Swamp Donkey
       objectReference: {fileID: 0}
+    - target: {fileID: 3481217265853933194, guid: 97794e8f32d9d574c8ed85db378e8c47,
+        type: 3}
+      propertyPath: dropLibrary
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5132307635276464659, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: startingLevel
@@ -5312,6 +5357,11 @@ PrefabInstance:
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1819004610}
+    - target: {fileID: 5224142304942228539, guid: 97794e8f32d9d574c8ed85db378e8c47,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5224142304942228539, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_CallState

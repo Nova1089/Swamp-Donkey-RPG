@@ -105,7 +105,7 @@ MonoBehaviour:
   width: 200
   height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: LoadScene
   condition:
     and: []
 --- !u!114 &-5517880961669909484

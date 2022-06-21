@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a77303d178cf8b49bd4805370e8d68c, type: 3}
   m_Name: Damage Effect - Super Mega Splash
   m_EditorClassIdentifier: 
-  amountToChange: -20
+  amountToChange: -45

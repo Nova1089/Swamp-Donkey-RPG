@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   text: Don't forget to equip your gear! Press I to open your inventory, then drag
-    and drop to equipment or hotbar in a valid slot.
+    and drop to your equipment or action bar in a valid slot.
   children:
   - 866e4759-284d-4ee4-af84-b078909fec01
   position: {x: 1167, y: 306}
