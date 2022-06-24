@@ -29,9 +29,10 @@ MonoBehaviour:
         - Swamp Donkey
         negate: 0
     - or:
-      - predicate: CompletedQuest
+      - predicate: CompletedObjectives
         parameters:
         - Swamp Donkey
+        - slay
         negate: 1
 --- !u!114 &-7390736821407280394
 MonoBehaviour:
@@ -263,7 +264,7 @@ MonoBehaviour:
     Take 1000g for your trouble.
   children:
   - 6753316c-24a5-4642-816c-73e45306020a
-  position: {x: 304, y: 655}
+  position: {x: 304, y: 654}
   width: 200
   height: 100
   onEnterAction: CompleteReturnObjective
@@ -276,6 +277,12 @@ MonoBehaviour:
         - Swamp Donkey
         - slay
         negate: 0
+    - or:
+      - predicate: CompletedObjectives
+        parameters:
+        - Swamp Donkey
+        - return
+        negate: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +414,7 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: What are you waiting for?!
   children: []
-  position: {x: 535, y: 517}
+  position: {x: 742, y: 528}
   width: 200
   height: 100
   onEnterAction: 
@@ -495,9 +502,9 @@ MonoBehaviour:
   m_Name: ebd3deb6-ad5d-45e7-8672-e93089a8c8a2
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Amazing!
+  text: Amazing! Check your quest book with Q.
   children: []
-  position: {x: 1637, y: 205}
+  position: {x: 1652, y: 204}
   width: 200
   height: 100
   onEnterAction: 

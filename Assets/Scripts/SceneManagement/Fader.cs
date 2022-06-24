@@ -27,21 +27,23 @@ namespace RPG.SceneManagement
             return Fade(0, time);
         }
 
-        public Coroutine Fade(float target, float time)
+        public Coroutine Fade(float targetAlpha, float timeToTake)
         {
             if (currentActiveFade != null)
             {
                 StopCoroutine(currentActiveFade);
+                Debug.Log("Stopped current active fade");
             }
-            currentActiveFade = StartCoroutine(FadeRoutine(target, time));
+            currentActiveFade = StartCoroutine(FadeRoutine(targetAlpha, timeToTake));
+            Debug.Log("Fader Began fade routine");
             return currentActiveFade;
         }
 
-        private IEnumerator FadeRoutine(float target, float time)
+        private IEnumerator FadeRoutine(float targetAlpha, float timeToTake)
         {
-            while (!Mathf.Approximately(canvasGroup.alpha, target))
+            while (!Mathf.Approximately(canvasGroup.alpha, targetAlpha))
             {
-                canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, target, Time.unscaledDeltaTime / time);
+                canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, targetAlpha, Time.unscaledDeltaTime / timeToTake);
                 yield return null;
             }
         }

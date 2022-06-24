@@ -39,6 +39,11 @@ MonoBehaviour:
     usesCondition: 0
     completionCondition:
       and: []
+  - id: return
+    description: Return to Goslin the Gossiper.
+    usesCondition: 0
+    completionCondition:
+      and: []
   rewards:
   - number: 1000
     item: {fileID: 11400000, guid: 3b2ffc0266201554b84d2e60bf323617, type: 2}
