@@ -70,10 +70,11 @@ namespace RPG.SceneManagement
         private void UpdatePlayer(Portal otherPortal)
         {
             GameObject player = GameObject.FindWithTag("Player");
-            player.GetComponent<NavMeshAgent>().enabled = false;
+            NavMeshAgent navMeshAgent = player.GetComponent<NavMeshAgent>();
+            navMeshAgent.enabled = false;
             player.transform.position = otherPortal.spawnPoint.position;
             player.transform.rotation = otherPortal.spawnPoint.rotation;
-            player.GetComponent<NavMeshAgent>().enabled = true;
+            navMeshAgent.enabled = true;
         }
 
         private Portal GetOtherPortal()

@@ -32,10 +32,8 @@ namespace RPG.SceneManagement
             if (currentActiveFade != null)
             {
                 StopCoroutine(currentActiveFade);
-                Debug.Log("Stopped current active fade");
             }
             currentActiveFade = StartCoroutine(FadeRoutine(targetAlpha, timeToTake));
-            Debug.Log("Fader Began fade routine");
             return currentActiveFade;
         }
 

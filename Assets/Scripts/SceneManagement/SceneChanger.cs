@@ -32,8 +32,16 @@ namespace RPG.SceneManagement
             playerController = player.GetComponent<PlayerController>();
         }
 
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                LoadScene();
+            }
+        }
+
         // public methods
-        public void LoadScene()
+        public void LoadScene() // called in Unity inspector
         {
             StartCoroutine(LoadSceneCoroutine());
         }
@@ -55,7 +63,7 @@ namespace RPG.SceneManagement
             PlayerController newPlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             newPlayerController.enabled = false;
             savingWrapper.Load();
-            UpdatePlayerLocationAndRotation();
+            UpdatePlayerLocation();
             savingWrapper.Save();
             yield return new WaitForSeconds(fadeWaitTime);
             fader.FadeIn(fadeInTime);
@@ -63,13 +71,25 @@ namespace RPG.SceneManagement
             Destroy(gameObject);
         }
 
-        private void UpdatePlayerLocationAndRotation()
+        private void UpdatePlayerLocation()
         {
             GameObject player = GameObject.FindWithTag("Player");
-            player.GetComponent<NavMeshAgent>().enabled = false;
+            NavMeshAgent navMeshAgent = player.GetComponent<NavMeshAgent>();
+            navMeshAgent.enabled = false;
+            if (navMeshAgent.enabled == false)
+            {
+                Debug.Log("Nav Mesh was successfully disabled");
+            }
+            else
+            {
+                Debug.Log("Nav mesh is still enabled");
+            }
+            Debug.Log("Player current location is: " + player.transform.position);
+            Debug.Log("playerSpawnLocation is: " + playerSpawnLocation);
             player.transform.position = playerSpawnLocation;
-            player.transform.Rotate(playerSpawnRotation, Space.World);
-            player.GetComponent<NavMeshAgent>().enabled = true;
+            Debug.Log("Finished updating player location");
+            // player.transform.Rotate(playerSpawnRotation, Space.World);
+            navMeshAgent.enabled = true;
         }
     }
 }

@@ -28,8 +28,7 @@ namespace RPG.Shops
         private void Update()
         {
             if (IsWithinShopRange() && isShopping == false)
-            {
-                mover.Cancel();
+            {                
                 ActivateShop();
                 isShopping = true;
             }
@@ -63,12 +62,15 @@ namespace RPG.Shops
 
         public void CancelShopping()
         {
-            activeShop = null;
+            targetShop = null;
+            activeShop = null;            
             OnActiveShopChanged();
         }
 
         private void ActivateShop()
         {
+            mover.Cancel();
+
             if (activeShop != null)
             {
                 activeShop.SetShopper(null);

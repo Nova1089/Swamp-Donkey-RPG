@@ -414,7 +414,7 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: What are you waiting for?!
   children: []
-  position: {x: 742, y: 528}
+  position: {x: 590, y: 531}
   width: 200
   height: 100
   onEnterAction: 
