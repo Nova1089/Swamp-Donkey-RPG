@@ -414,8 +414,6 @@ MonoBehaviour:
   fadeOutTime: 1
   fadeInTime: 2
   fadeWaitTime: 0.5
-  playerSpawnLocation: {x: 0, y: 0, z: 0}
-  playerSpawnRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &32858953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,6 +433,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1651276480}
         m_TargetAssemblyTypeName: RPG.SceneManagement.SceneChanger, Assembly-CSharp
         m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &32858954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32858947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a1ff9dab1e7ce4fad2beb667842641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: CompleteQuest
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 32858950}
+        m_TargetAssemblyTypeName: RPG.Quests.QuestCompletion, Assembly-CSharp
+        m_MethodName: CompleteQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10623,8 +10649,6 @@ MonoBehaviour:
   fadeOutTime: 1
   fadeInTime: 2
   fadeWaitTime: 0.5
-  playerSpawnLocation: {x: 59.62, y: 0, z: 23.24}
-  playerSpawnRotation: {x: 0, y: 0, z: 0}
 --- !u!4 &1651276481
 Transform:
   m_ObjectHideFlags: 0
@@ -13201,7 +13225,7 @@ PrefabInstance:
     - target: {fileID: 229500966478203131, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0013091296
+      value: 0.000032603464
       objectReference: {fileID: 0}
     - target: {fileID: 297191675337182174, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
@@ -14326,7 +14350,7 @@ PrefabInstance:
     - target: {fileID: 2583073285803681812, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0009869386
+      value: 0.00011084304
       objectReference: {fileID: 0}
     - target: {fileID: 2724133104361424989, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}

@@ -24,5 +24,10 @@ namespace RPG.Quests
         {
             questList.CompleteObjective(quest, objective);
         }
+
+        public void CompleteQuest()
+        {
+            questList.CompleteQuest(quest);
+        }
     }
 }

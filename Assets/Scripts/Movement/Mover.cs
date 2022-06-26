@@ -11,6 +11,7 @@ namespace RPG.Movement
         [SerializeField] Transform target;
         [SerializeField] float maxSpeed = 6f;
         [SerializeField] float maxNavPathLength = 40f;
+        Vector3 wrongPos = new Vector3(97.56f, 0f, 47.26f);
 
         NavMeshAgent navMeshAgent;
         Health health;

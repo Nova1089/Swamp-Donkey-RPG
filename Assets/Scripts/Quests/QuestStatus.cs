@@ -82,6 +82,14 @@ namespace RPG.Quests
             completedObjectives.Add(objective);
         }
 
+        public void CompleteQuest()
+        {
+            foreach (Quest.Objective objective in quest.GetObjectives())
+            {
+                CompleteObjective(objective.id);
+            }
+        }
+
         public object CaptureState()
         {
             return new QuestStatusRecord(quest.name, this.completedObjectives);

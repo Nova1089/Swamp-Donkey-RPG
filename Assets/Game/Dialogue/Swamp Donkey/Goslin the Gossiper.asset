@@ -268,7 +268,7 @@ MonoBehaviour:
   width: 200
   height: 100
   onEnterAction: CompleteReturnObjective
-  onExitAction: 
+  onExitAction: CompleteQuest
   condition:
     and:
     - or:

@@ -68,6 +68,12 @@ namespace RPG.Quests
             }
         }
 
+        public void CompleteQuest(Quest quest)
+        {
+            QuestStatus questStatus = GetQuestStatus(quest);
+            questStatus.CompleteQuest();
+        }
+
         private void GiveReward(Quest quest)
         {
             foreach (Quest.Reward reward in quest.GetRewards())

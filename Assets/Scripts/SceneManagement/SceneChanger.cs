@@ -1,4 +1,5 @@
 using RPG.Control;
+using RPG.Movement;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,8 +17,6 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeOutTime = 1f;
         [SerializeField] float fadeInTime = 2f;
         [SerializeField] float fadeWaitTime = 0.5f;
-        [SerializeField] Vector3 playerSpawnLocation = new Vector3();
-        [SerializeField] Vector3 playerSpawnRotation = new Vector3();
 
         // cached references
         SavingWrapper savingWrapper;
@@ -62,34 +61,11 @@ namespace RPG.SceneManagement
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
             PlayerController newPlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             newPlayerController.enabled = false;
-            savingWrapper.Load();
-            UpdatePlayerLocation();
             savingWrapper.Save();
             yield return new WaitForSeconds(fadeWaitTime);
             fader.FadeIn(fadeInTime);
             newPlayerController.enabled = true;
             Destroy(gameObject);
-        }
-
-        private void UpdatePlayerLocation()
-        {
-            GameObject player = GameObject.FindWithTag("Player");
-            NavMeshAgent navMeshAgent = player.GetComponent<NavMeshAgent>();
-            navMeshAgent.enabled = false;
-            if (navMeshAgent.enabled == false)
-            {
-                Debug.Log("Nav Mesh was successfully disabled");
-            }
-            else
-            {
-                Debug.Log("Nav mesh is still enabled");
-            }
-            Debug.Log("Player current location is: " + player.transform.position);
-            Debug.Log("playerSpawnLocation is: " + playerSpawnLocation);
-            player.transform.position = playerSpawnLocation;
-            Debug.Log("Finished updating player location");
-            // player.transform.Rotate(playerSpawnRotation, Space.World);
-            navMeshAgent.enabled = true;
         }
     }
 }

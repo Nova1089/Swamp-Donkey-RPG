@@ -1,3 +1,4 @@
+using RPG.Attributes;
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
@@ -21,6 +22,7 @@ namespace RPG.Control
         NavMeshAgent navMeshAgent;
         Fighter fighter;
         Mover mover;
+        Health health;
         float aboveGroundY = 0;
         List<GameObject> children = new List<GameObject>();
         
@@ -33,6 +35,7 @@ namespace RPG.Control
             navMeshAgent = GetComponent<NavMeshAgent>();
             fighter = GetComponent<Fighter>();
             mover = GetComponent<Mover>();
+            health = GetComponent<Health>();
             foreach (Transform child in transform)
             {
                 children.Add(child.gameObject);
@@ -43,11 +46,20 @@ namespace RPG.Control
         {
             actionScheduler.CancelCurrentAction();
             SetChildrenEnabled(false);
+            SetCombatEnabled(false);
             yield return new WaitUntil(aiController.PrepareForRespawn);
             aboveGroundY = transform.position.y;
             yield return new WaitUntil(DropUnderGround);
             SetChildrenEnabled(true);
             yield return new WaitUntil(PopUp);
+            SetCombatEnabled(true);
+            health.enabled = true;
+        }
+
+        void SetCombatEnabled(bool value)
+        {
+            health.enabled = value;
+            fighter.enabled = value;
         }
 
         void SetChildrenEnabled(bool value)
