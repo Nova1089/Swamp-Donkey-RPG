@@ -155,7 +155,13 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: CompletedObjectives
+        parameters:
+        - Swamp Donkey
+        - train
+        negate: 0
 --- !u!114 &-4439277751391713487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,11 +270,12 @@ MonoBehaviour:
     Take 1000g for your trouble.
   children:
   - 6753316c-24a5-4642-816c-73e45306020a
+  - 4ed5f7e0-2f35-4556-b7c6-899ea54dd5ba
   position: {x: 304, y: 654}
   width: 200
   height: 100
   onEnterAction: CompleteReturnObjective
-  onExitAction: CompleteQuest
+  onExitAction: 
   condition:
     and:
     - or:
@@ -282,6 +289,35 @@ MonoBehaviour:
         parameters:
         - Swamp Donkey
         - return
+        negate: 1
+--- !u!114 &-1925088049364705070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc6575978270d4b9c29e59494308c5, type: 3}
+  m_Name: 4ed5f7e0-2f35-4556-b7c6-899ea54dd5ba
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: As another surpise, would you like me to show you some magic?
+  children:
+  - 37964175-35c2-4670-be8f-6f91fa1944e8
+  position: {x: 529, y: 753}
+  width: 200
+  height: 100
+  onEnterAction: CompleteQuest
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: CompletedObjectives
+        parameters:
+        - Swamp Donkey
+        - train
         negate: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -319,6 +355,7 @@ MonoBehaviour:
   - {fileID: 2260208130770480872}
   - {fileID: 7190298495019135728}
   - {fileID: 4078627843056584205}
+  - {fileID: -1925088049364705070}
   newNodeOffset: {x: 25, y: 0}
 --- !u!114 &1298720443851029049
 MonoBehaviour:

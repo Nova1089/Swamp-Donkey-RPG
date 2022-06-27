@@ -55,6 +55,11 @@ namespace RPG.Dialogue
         }
 #endif
         // Also called by Unity Editor when script is loaded or a value changes in the inspector.
+        void Awake()
+        {
+            OnValidate();
+        }
+
         void OnValidate()
         {
             BuildNodeLookup();
