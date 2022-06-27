@@ -78,10 +78,10 @@ MonoBehaviour:
   m_Name: dce4732d-75a9-4187-943f-1abc49c99ad8
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: For action bar abilities, press corresponding key to target and click to
-    fire.
+  text: For action bar abilities, press corresponding key (1-6) to target and click
+    to fire.
   children: []
-  position: {x: 730, y: 437}
+  position: {x: 733, y: 437}
   width: 200
   height: 100
   onEnterAction: 

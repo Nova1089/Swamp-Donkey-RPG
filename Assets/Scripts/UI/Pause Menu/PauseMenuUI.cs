@@ -49,7 +49,7 @@ namespace RPG.UI
             }
             else
             {
-                Time.timeScale = 5f;
+                Time.timeScale = 1.75f;
             }
 
             playerController.enabled = !pauseState;

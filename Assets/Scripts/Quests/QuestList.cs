@@ -71,7 +71,10 @@ namespace RPG.Quests
         public void CompleteQuest(Quest quest)
         {
             QuestStatus questStatus = GetQuestStatus(quest);
+            if (questStatus == null) return;
             questStatus.CompleteQuest();
+            GiveReward(quest);
+            OnUpdate?.Invoke();
         }
 
         private void GiveReward(Quest quest)

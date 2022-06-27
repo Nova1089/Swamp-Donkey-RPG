@@ -79,7 +79,11 @@ namespace RPG.Quests
         public void CompleteObjective(string objective)
         {
             if (!quest.HasObjective(objective)) return;
-            completedObjectives.Add(objective);
+
+            if (!IsObjectiveCompleted(objective))
+            {
+                completedObjectives.Add(objective);
+            }            
         }
 
         public void CompleteQuest()

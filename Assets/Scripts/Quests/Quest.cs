@@ -15,6 +15,9 @@ namespace RPG.Quests
         [SerializeField] List<Objective> objectives = new List<Objective>();
         [SerializeField] List<Reward> rewards = new List<Reward>();
 
+        // state
+        private static Dictionary<string, Quest> masterQuestDictionary;
+
         // nested classes
         [System.Serializable] public class Objective
         {
@@ -65,14 +68,16 @@ namespace RPG.Quests
 
         public static Quest GetByName(string questName)
         {
-            foreach (Quest quest in Resources.LoadAll<Quest>(""))
+            if (masterQuestDictionary == null)
             {
-                if (quest.name == questName)
+                masterQuestDictionary = new Dictionary<string, Quest>();
+                foreach (Quest quest in Resources.LoadAll<Quest>(""))
                 {
-                    return quest;
+                    if (masterQuestDictionary.ContainsKey(quest.name)) Debug.Log($"There are two {quest.name} quests in the system");
+                    else masterQuestDictionary.Add(quest.name, quest);
                 }
             }
-            return null;
+            return masterQuestDictionary.ContainsKey(questName) ? masterQuestDictionary[questName] : null;
         }
     }
 }

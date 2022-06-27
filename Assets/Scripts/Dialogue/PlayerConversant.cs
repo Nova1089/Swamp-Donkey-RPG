@@ -18,6 +18,7 @@ namespace RPG.Dialogue
         DialogueMap currentDialogueMap;
         DialogueNode currentNode = null;
         NPCConversant currentNPCConversant = null;
+        IEnumerable<IPredicateEvaluator> predicateEvaluators;
         bool isChoosing = false;
         bool isTalking = false;
 
@@ -31,6 +32,7 @@ namespace RPG.Dialogue
         private void Awake()
         {
             mover = GetComponent<Mover>();
+            predicateEvaluators = GetComponents<IPredicateEvaluator>();
         }
 
         private void Update()
@@ -159,7 +161,7 @@ namespace RPG.Dialogue
 
         private IEnumerable<IPredicateEvaluator> GetEvaluators()
         {
-            return GetComponents<IPredicateEvaluator>();
+            return predicateEvaluators;
         }
 
         void TriggerEnterAction()
